@@ -1,0 +1,865 @@
+<!DOCTYPE html PUBLIC "-//W3C//DTD HTML 4.01//EN" "http://www.w3.org/TR/html4/strict.dtd">
+<html>
+<head>
+  <meta http-equiv="Content-Type" content="text/html; charset=utf-8">
+  <meta http-equiv="Content-Style-Type" content="text/css">
+  <title></title>
+  <meta name="Generator" content="Cocoa HTML Writer">
+  <meta name="CocoaVersion" content="2575.6">
+  <style type="text/css">
+    p.p1 {margin: 0.0px 0.0px 0.0px 0.0px; font: 12.0px Helvetica}
+    p.p2 {margin: 0.0px 0.0px 0.0px 0.0px; font: 12.0px Helvetica; min-height: 14.0px}
+  </style>
+</head>
+<body>
+<p class="p1">&lt;!DOCTYPE html&gt;</p>
+<p class="p1">&lt;html lang="es"&gt;</p>
+<p class="p1">&lt;head&gt;</p>
+<p class="p1"><span class="Apple-converted-space">    </span>&lt;meta charset="UTF-8"&gt;</p>
+<p class="p1"><span class="Apple-converted-space">    </span>&lt;meta name="viewport" content="width=device-width, initial-scale=1.0"&gt;</p>
+<p class="p1"><span class="Apple-converted-space">    </span>&lt;title&gt;BlasterMRX - Cybersecurity &amp; Hacking Terminal&lt;/title&gt;</p>
+<p class="p1"><span class="Apple-converted-space">    </span>&lt;script src="https://cdn.tailwindcss.com"&gt;&lt;/script&gt;</p>
+<p class="p1"><span class="Apple-converted-space">    </span>&lt;style&gt;</p>
+<p class="p1"><span class="Apple-converted-space">        </span>@import url('https://fonts.googleapis.com/css2?family=Fira+Code:wght@300;400;500;600;700&amp;display=swap');</p>
+<p class="p2"><span class="Apple-converted-space">        </span></p>
+<p class="p1"><span class="Apple-converted-space">        </span>* {</p>
+<p class="p1"><span class="Apple-converted-space">            </span>font-family: 'Fira Code', monospace;</p>
+<p class="p1"><span class="Apple-converted-space">        </span>}</p>
+<p class="p2"><span class="Apple-converted-space">        </span></p>
+<p class="p1"><span class="Apple-converted-space">        </span>body {</p>
+<p class="p1"><span class="Apple-converted-space">            </span>background: #0a0a0a;</p>
+<p class="p1"><span class="Apple-converted-space">            </span>color: #00ff00;</p>
+<p class="p1"><span class="Apple-converted-space">            </span>overflow-x: hidden;</p>
+<p class="p1"><span class="Apple-converted-space">        </span>}</p>
+<p class="p2"><span class="Apple-converted-space">        </span></p>
+<p class="p1"><span class="Apple-converted-space">        </span>/* Matrix Rain Effect */</p>
+<p class="p1"><span class="Apple-converted-space">        </span>.matrix-bg {</p>
+<p class="p1"><span class="Apple-converted-space">            </span>position: fixed;</p>
+<p class="p1"><span class="Apple-converted-space">            </span>top: 0;</p>
+<p class="p1"><span class="Apple-converted-space">            </span>left: 0;</p>
+<p class="p1"><span class="Apple-converted-space">            </span>width: 100%;</p>
+<p class="p1"><span class="Apple-converted-space">            </span>height: 100%;</p>
+<p class="p1"><span class="Apple-converted-space">            </span>z-index: -1;</p>
+<p class="p1"><span class="Apple-converted-space">            </span>opacity: 0.1;</p>
+<p class="p1"><span class="Apple-converted-space">        </span>}</p>
+<p class="p2"><span class="Apple-converted-space">        </span></p>
+<p class="p1"><span class="Apple-converted-space">        </span>.matrix-char {</p>
+<p class="p1"><span class="Apple-converted-space">            </span>position: absolute;</p>
+<p class="p1"><span class="Apple-converted-space">            </span>color: #00ff00;</p>
+<p class="p1"><span class="Apple-converted-space">            </span>font-size: 14px;</p>
+<p class="p1"><span class="Apple-converted-space">            </span>animation: fall linear infinite;</p>
+<p class="p1"><span class="Apple-converted-space">        </span>}</p>
+<p class="p2"><span class="Apple-converted-space">        </span></p>
+<p class="p1"><span class="Apple-converted-space">        </span>@keyframes fall {</p>
+<p class="p1"><span class="Apple-converted-space">            </span>0% { transform: translateY(-100vh); opacity: 1; }</p>
+<p class="p1"><span class="Apple-converted-space">            </span>100% { transform: translateY(100vh); opacity: 0; }</p>
+<p class="p1"><span class="Apple-converted-space">        </span>}</p>
+<p class="p2"><span class="Apple-converted-space">        </span></p>
+<p class="p1"><span class="Apple-converted-space">        </span>/* Glitch Effects */</p>
+<p class="p1"><span class="Apple-converted-space">        </span>.glitch {</p>
+<p class="p1"><span class="Apple-converted-space">            </span>position: relative;</p>
+<p class="p1"><span class="Apple-converted-space">            </span>animation: glitch 2s infinite;</p>
+<p class="p1"><span class="Apple-converted-space">        </span>}</p>
+<p class="p2"><span class="Apple-converted-space">        </span></p>
+<p class="p1"><span class="Apple-converted-space">        </span>.glitch::before,</p>
+<p class="p1"><span class="Apple-converted-space">        </span>.glitch::after {</p>
+<p class="p1"><span class="Apple-converted-space">            </span>content: attr(data-text);</p>
+<p class="p1"><span class="Apple-converted-space">            </span>position: absolute;</p>
+<p class="p1"><span class="Apple-converted-space">            </span>top: 0;</p>
+<p class="p1"><span class="Apple-converted-space">            </span>left: 0;</p>
+<p class="p1"><span class="Apple-converted-space">            </span>width: 100%;</p>
+<p class="p1"><span class="Apple-converted-space">            </span>height: 100%;</p>
+<p class="p1"><span class="Apple-converted-space">        </span>}</p>
+<p class="p2"><span class="Apple-converted-space">        </span></p>
+<p class="p1"><span class="Apple-converted-space">        </span>.glitch::before {</p>
+<p class="p1"><span class="Apple-converted-space">            </span>animation: glitch-1 0.5s infinite;</p>
+<p class="p1"><span class="Apple-converted-space">            </span>color: #ff0000;</p>
+<p class="p1"><span class="Apple-converted-space">            </span>z-index: -1;</p>
+<p class="p1"><span class="Apple-converted-space">        </span>}</p>
+<p class="p2"><span class="Apple-converted-space">        </span></p>
+<p class="p1"><span class="Apple-converted-space">        </span>.glitch::after {</p>
+<p class="p1"><span class="Apple-converted-space">            </span>animation: glitch-2 0.5s infinite;</p>
+<p class="p1"><span class="Apple-converted-space">            </span>color: #00ffff;</p>
+<p class="p1"><span class="Apple-converted-space">            </span>z-index: -2;</p>
+<p class="p1"><span class="Apple-converted-space">        </span>}</p>
+<p class="p2"><span class="Apple-converted-space">        </span></p>
+<p class="p1"><span class="Apple-converted-space">        </span>@keyframes glitch {</p>
+<p class="p1"><span class="Apple-converted-space">            </span>0%, 100% { transform: translate(0); }</p>
+<p class="p1"><span class="Apple-converted-space">            </span>20% { transform: translate(-2px, 2px); }</p>
+<p class="p1"><span class="Apple-converted-space">            </span>40% { transform: translate(-2px, -2px); }</p>
+<p class="p1"><span class="Apple-converted-space">            </span>60% { transform: translate(2px, 2px); }</p>
+<p class="p1"><span class="Apple-converted-space">            </span>80% { transform: translate(2px, -2px); }</p>
+<p class="p1"><span class="Apple-converted-space">        </span>}</p>
+<p class="p2"><span class="Apple-converted-space">        </span></p>
+<p class="p1"><span class="Apple-converted-space">        </span>@keyframes glitch-1 {</p>
+<p class="p1"><span class="Apple-converted-space">            </span>0%, 100% { transform: translate(0); }</p>
+<p class="p1"><span class="Apple-converted-space">            </span>20% { transform: translate(2px, -2px); }</p>
+<p class="p1"><span class="Apple-converted-space">            </span>40% { transform: translate(-2px, 2px); }</p>
+<p class="p1"><span class="Apple-converted-space">            </span>60% { transform: translate(-2px, -2px); }</p>
+<p class="p1"><span class="Apple-converted-space">            </span>80% { transform: translate(2px, 2px); }</p>
+<p class="p1"><span class="Apple-converted-space">        </span>}</p>
+<p class="p2"><span class="Apple-converted-space">        </span></p>
+<p class="p1"><span class="Apple-converted-space">        </span>@keyframes glitch-2 {</p>
+<p class="p1"><span class="Apple-converted-space">            </span>0%, 100% { transform: translate(0); }</p>
+<p class="p1"><span class="Apple-converted-space">            </span>20% { transform: translate(-2px, 2px); }</p>
+<p class="p1"><span class="Apple-converted-space">            </span>40% { transform: translate(2px, -2px); }</p>
+<p class="p1"><span class="Apple-converted-space">            </span>60% { transform: translate(2px, 2px); }</p>
+<p class="p1"><span class="Apple-converted-space">            </span>80% { transform: translate(-2px, -2px); }</p>
+<p class="p1"><span class="Apple-converted-space">        </span>}</p>
+<p class="p2"><span class="Apple-converted-space">        </span></p>
+<p class="p1"><span class="Apple-converted-space">        </span>/* Terminal Styles */</p>
+<p class="p1"><span class="Apple-converted-space">        </span>.terminal {</p>
+<p class="p1"><span class="Apple-converted-space">            </span>background: rgba(0, 0, 0, 0.9);</p>
+<p class="p1"><span class="Apple-converted-space">            </span>border: 1px solid #00ff00;</p>
+<p class="p1"><span class="Apple-converted-space">            </span>box-shadow: 0 0 20px rgba(0, 255, 0, 0.3);</p>
+<p class="p1"><span class="Apple-converted-space">        </span>}</p>
+<p class="p2"><span class="Apple-converted-space">        </span></p>
+<p class="p1"><span class="Apple-converted-space">        </span>.terminal-header {</p>
+<p class="p1"><span class="Apple-converted-space">            </span>background: #1a1a1a;</p>
+<p class="p1"><span class="Apple-converted-space">            </span>border-bottom: 1px solid #00ff00;</p>
+<p class="p1"><span class="Apple-converted-space">            </span>padding: 8px 16px;</p>
+<p class="p1"><span class="Apple-converted-space">            </span>font-size: 12px;</p>
+<p class="p1"><span class="Apple-converted-space">        </span>}</p>
+<p class="p2"><span class="Apple-converted-space">        </span></p>
+<p class="p1"><span class="Apple-converted-space">        </span>.typing {</p>
+<p class="p1"><span class="Apple-converted-space">            </span>overflow: hidden;</p>
+<p class="p1"><span class="Apple-converted-space">            </span>border-right: 2px solid #00ff00;</p>
+<p class="p1"><span class="Apple-converted-space">            </span>white-space: nowrap;</p>
+<p class="p1"><span class="Apple-converted-space">            </span>animation: typing 3s steps(40, end), blink-caret 0.75s step-end infinite;</p>
+<p class="p1"><span class="Apple-converted-space">        </span>}</p>
+<p class="p2"><span class="Apple-converted-space">        </span></p>
+<p class="p1"><span class="Apple-converted-space">        </span>@keyframes typing {</p>
+<p class="p1"><span class="Apple-converted-space">            </span>from { width: 0; }</p>
+<p class="p1"><span class="Apple-converted-space">            </span>to { width: 100%; }</p>
+<p class="p1"><span class="Apple-converted-space">        </span>}</p>
+<p class="p2"><span class="Apple-converted-space">        </span></p>
+<p class="p1"><span class="Apple-converted-space">        </span>@keyframes blink-caret {</p>
+<p class="p1"><span class="Apple-converted-space">            </span>from, to { border-color: transparent; }</p>
+<p class="p1"><span class="Apple-converted-space">            </span>50% { border-color: #00ff00; }</p>
+<p class="p1"><span class="Apple-converted-space">        </span>}</p>
+<p class="p2"><span class="Apple-converted-space">        </span></p>
+<p class="p1"><span class="Apple-converted-space">        </span>/* Hover Effects */</p>
+<p class="p1"><span class="Apple-converted-space">        </span>.cyber-hover {</p>
+<p class="p1"><span class="Apple-converted-space">            </span>transition: all 0.3s ease;</p>
+<p class="p1"><span class="Apple-converted-space">            </span>border: 1px solid transparent;</p>
+<p class="p1"><span class="Apple-converted-space">        </span>}</p>
+<p class="p2"><span class="Apple-converted-space">        </span></p>
+<p class="p1"><span class="Apple-converted-space">        </span>.cyber-hover:hover {</p>
+<p class="p1"><span class="Apple-converted-space">            </span>border-color: #00ff00;</p>
+<p class="p1"><span class="Apple-converted-space">            </span>box-shadow: 0 0 15px rgba(0, 255, 0, 0.5);</p>
+<p class="p1"><span class="Apple-converted-space">            </span>transform: translateY(-2px);</p>
+<p class="p1"><span class="Apple-converted-space">        </span>}</p>
+<p class="p2"><span class="Apple-converted-space">        </span></p>
+<p class="p1"><span class="Apple-converted-space">        </span>/* Neon Text */</p>
+<p class="p1"><span class="Apple-converted-space">        </span>.neon-text {</p>
+<p class="p1"><span class="Apple-converted-space">            </span>text-shadow: 0 0 5px #00ff00, 0 0 10px #00ff00, 0 0 15px #00ff00;</p>
+<p class="p1"><span class="Apple-converted-space">        </span>}</p>
+<p class="p2"><span class="Apple-converted-space">        </span></p>
+<p class="p1"><span class="Apple-converted-space">        </span>.neon-red {</p>
+<p class="p1"><span class="Apple-converted-space">            </span>color: #ff0040;</p>
+<p class="p1"><span class="Apple-converted-space">            </span>text-shadow: 0 0 5px #ff0040, 0 0 10px #ff0040, 0 0 15px #ff0040;</p>
+<p class="p1"><span class="Apple-converted-space">        </span>}</p>
+<p class="p2"><span class="Apple-converted-space">        </span></p>
+<p class="p1"><span class="Apple-converted-space">        </span>/* Scrollbar */</p>
+<p class="p1"><span class="Apple-converted-space">        </span>::-webkit-scrollbar {</p>
+<p class="p1"><span class="Apple-converted-space">            </span>width: 8px;</p>
+<p class="p1"><span class="Apple-converted-space">        </span>}</p>
+<p class="p2"><span class="Apple-converted-space">        </span></p>
+<p class="p1"><span class="Apple-converted-space">        </span>::-webkit-scrollbar-track {</p>
+<p class="p1"><span class="Apple-converted-space">            </span>background: #1a1a1a;</p>
+<p class="p1"><span class="Apple-converted-space">        </span>}</p>
+<p class="p2"><span class="Apple-converted-space">        </span></p>
+<p class="p1"><span class="Apple-converted-space">        </span>::-webkit-scrollbar-thumb {</p>
+<p class="p1"><span class="Apple-converted-space">            </span>background: #00ff00;</p>
+<p class="p1"><span class="Apple-converted-space">            </span>border-radius: 4px;</p>
+<p class="p1"><span class="Apple-converted-space">        </span>}</p>
+<p class="p2"><span class="Apple-converted-space">        </span></p>
+<p class="p1"><span class="Apple-converted-space">        </span>::-webkit-scrollbar-thumb:hover {</p>
+<p class="p1"><span class="Apple-converted-space">            </span>background: #00cc00;</p>
+<p class="p1"><span class="Apple-converted-space">        </span>}</p>
+<p class="p1"><span class="Apple-converted-space">    </span>&lt;/style&gt;</p>
+<p class="p1">&lt;/head&gt;</p>
+<p class="p1">&lt;body&gt;</p>
+<p class="p1"><span class="Apple-converted-space">    </span>&lt;!-- Matrix Background --&gt;</p>
+<p class="p1"><span class="Apple-converted-space">    </span>&lt;div class="matrix-bg" id="matrix"&gt;&lt;/div&gt;</p>
+<p class="p2"><span class="Apple-converted-space">    </span></p>
+<p class="p1"><span class="Apple-converted-space">    </span>&lt;!-- Navigation --&gt;</p>
+<p class="p1"><span class="Apple-converted-space">    </span>&lt;nav class="terminal fixed top-0 w-full z-50"&gt;</p>
+<p class="p1"><span class="Apple-converted-space">        </span>&lt;div class="terminal-header"&gt;</p>
+<p class="p1"><span class="Apple-converted-space">            </span>&lt;span class="text-red-500"&gt;root@BlasterMRX:~$&lt;/span&gt; &lt;span class="text-yellow-400"&gt;navigation_menu.sh&lt;/span&gt;</p>
+<p class="p1"><span class="Apple-converted-space">        </span>&lt;/div&gt;</p>
+<p class="p1"><span class="Apple-converted-space">        </span>&lt;div class="flex justify-between items-center p-4"&gt;</p>
+<p class="p1"><span class="Apple-converted-space">            </span>&lt;div class="flex items-center space-x-2"&gt;</p>
+<p class="p1"><span class="Apple-converted-space">                </span>&lt;span class="text-2xl"&gt;⚡&lt;/span&gt;</p>
+<p class="p1"><span class="Apple-converted-space">                </span>&lt;h1 class="text-2xl font-bold neon-text glitch" data-text="BlasterMRX"&gt;BlasterMRX&lt;/h1&gt;</p>
+<p class="p1"><span class="Apple-converted-space">            </span>&lt;/div&gt;</p>
+<p class="p1"><span class="Apple-converted-space">            </span>&lt;div class="hidden md:flex space-x-6"&gt;</p>
+<p class="p1"><span class="Apple-converted-space">                </span>&lt;button onclick="showSection('home')" class="cyber-hover px-3 py-1 rounded text-green-400 hover:text-white"&gt;[HOME]&lt;/button&gt;</p>
+<p class="p1"><span class="Apple-converted-space">                </span>&lt;button onclick="showSection('noticias')" class="cyber-hover px-3 py-1 rounded text-green-400 hover:text-white"&gt;[NOTICIAS]&lt;/button&gt;</p>
+<p class="p1"><span class="Apple-converted-space">                </span>&lt;button onclick="showSection('blog')" class="cyber-hover px-3 py-1 rounded text-green-400 hover:text-white"&gt;[BLOG]&lt;/button&gt;</p>
+<p class="p1"><span class="Apple-converted-space">                </span>&lt;button onclick="showSection('tutoriales')" class="cyber-hover px-3 py-1 rounded text-green-400 hover:text-white"&gt;[TUTORIALES]&lt;/button&gt;</p>
+<p class="p1"><span class="Apple-converted-space">                </span>&lt;button onclick="showSection('about')" class="cyber-hover px-3 py-1 rounded text-green-400 hover:text-white"&gt;[ABOUT]&lt;/button&gt;</p>
+<p class="p1"><span class="Apple-converted-space">            </span>&lt;/div&gt;</p>
+<p class="p1"><span class="Apple-converted-space">            </span>&lt;button class="md:hidden text-green-400" onclick="toggleMobileMenu()"&gt;</p>
+<p class="p1"><span class="Apple-converted-space">                </span>&lt;span class="text-xl"&gt;☰&lt;/span&gt;</p>
+<p class="p1"><span class="Apple-converted-space">            </span>&lt;/button&gt;</p>
+<p class="p1"><span class="Apple-converted-space">        </span>&lt;/div&gt;</p>
+<p class="p1"><span class="Apple-converted-space">        </span>&lt;div id="mobileMenu" class="hidden md:hidden bg-black border-t border-green-500 p-4"&gt;</p>
+<p class="p1"><span class="Apple-converted-space">            </span>&lt;button onclick="showSection('home')" class="block w-full text-left py-2 text-green-400 hover:text-white"&gt;[HOME]&lt;/button&gt;</p>
+<p class="p1"><span class="Apple-converted-space">            </span>&lt;button onclick="showSection('noticias')" class="block w-full text-left py-2 text-green-400 hover:text-white"&gt;[NOTICIAS]&lt;/button&gt;</p>
+<p class="p1"><span class="Apple-converted-space">            </span>&lt;button onclick="showSection('blog')" class="block w-full text-left py-2 text-green-400 hover:text-white"&gt;[BLOG]&lt;/button&gt;</p>
+<p class="p1"><span class="Apple-converted-space">            </span>&lt;button onclick="showSection('tutoriales')" class="block w-full text-left py-2 text-green-400 hover:text-white"&gt;[TUTORIALES]&lt;/button&gt;</p>
+<p class="p1"><span class="Apple-converted-space">            </span>&lt;button onclick="showSection('about')" class="block w-full text-left py-2 text-green-400 hover:text-white"&gt;[ABOUT]&lt;/button&gt;</p>
+<p class="p1"><span class="Apple-converted-space">        </span>&lt;/div&gt;</p>
+<p class="p1"><span class="Apple-converted-space">    </span>&lt;/nav&gt;</p>
+<p class="p2"><br></p>
+<p class="p1"><span class="Apple-converted-space">    </span>&lt;!-- Main Content --&gt;</p>
+<p class="p1"><span class="Apple-converted-space">    </span>&lt;main class="pt-32"&gt;</p>
+<p class="p1"><span class="Apple-converted-space">        </span>&lt;!-- Home Section --&gt;</p>
+<p class="p1"><span class="Apple-converted-space">        </span>&lt;section id="home" class="section-content min-h-screen"&gt;</p>
+<p class="p1"><span class="Apple-converted-space">            </span>&lt;div class="max-w-6xl mx-auto px-4 py-16"&gt;</p>
+<p class="p1"><span class="Apple-converted-space">                </span>&lt;!-- Welcome Terminal --&gt;</p>
+<p class="p1"><span class="Apple-converted-space">                </span>&lt;div class="terminal mb-12"&gt;</p>
+<p class="p1"><span class="Apple-converted-space">                    </span>&lt;div class="terminal-header"&gt;</p>
+<p class="p1"><span class="Apple-converted-space">                        </span>&lt;span class="text-red-500"&gt;root@BlasterMRX:~$&lt;/span&gt; &lt;span class="text-yellow-400"&gt;welcome.sh&lt;/span&gt;</p>
+<p class="p1"><span class="Apple-converted-space">                    </span>&lt;/div&gt;</p>
+<p class="p1"><span class="Apple-converted-space">                    </span>&lt;div class="p-6"&gt;</p>
+<p class="p1"><span class="Apple-converted-space">                        </span>&lt;div class="typing text-2xl mb-4"&gt;Inicializando sistema BlasterMRX...&lt;/div&gt;</p>
+<p class="p1"><span class="Apple-converted-space">                        </span>&lt;div class="text-green-400 mb-4"&gt;</p>
+<p class="p1"><span class="Apple-converted-space">                            </span>&lt;span class="text-red-500"&gt;[SYSTEM]&lt;/span&gt; Conexión establecida&lt;br&gt;</p>
+<p class="p1"><span class="Apple-converted-space">                            </span>&lt;span class="text-yellow-400"&gt;[STATUS]&lt;/span&gt; Todos los sistemas operativos&lt;br&gt;</p>
+<p class="p1"><span class="Apple-converted-space">                            </span>&lt;span class="text-blue-400"&gt;[ACCESS]&lt;/span&gt; Nivel de privilegios: ROOT</p>
+<p class="p1"><span class="Apple-converted-space">                        </span>&lt;/div&gt;</p>
+<p class="p1"><span class="Apple-converted-space">                        </span>&lt;h1 class="text-4xl font-bold neon-text mb-6 glitch" data-text="BIENVENIDO AL TERMINAL"&gt;BIENVENIDO AL TERMINAL&lt;/h1&gt;</p>
+<p class="p1"><span class="Apple-converted-space">                        </span>&lt;p class="text-lg text-gray-300 mb-8"&gt;</p>
+<p class="p1"><span class="Apple-converted-space">                            </span>&gt; Sistema de información de ciberseguridad y hacking ético&lt;br&gt;</p>
+<p class="p1"><span class="Apple-converted-space">                            </span>&gt; Acceso autorizado únicamente para propósitos educativos&lt;br&gt;</p>
+<p class="p1"><span class="Apple-converted-space">                            </span>&gt; "El conocimiento es poder, pero el poder conlleva responsabilidad"</p>
+<p class="p1"><span class="Apple-converted-space">                        </span>&lt;/p&gt;</p>
+<p class="p1"><span class="Apple-converted-space">                    </span>&lt;/div&gt;</p>
+<p class="p1"><span class="Apple-converted-space">                </span>&lt;/div&gt;</p>
+<p class="p2"><br></p>
+<p class="p1"><span class="Apple-converted-space">                </span>&lt;!-- Stats Grid --&gt;</p>
+<p class="p1"><span class="Apple-converted-space">                </span>&lt;div class="grid md:grid-cols-3 gap-6 mb-12"&gt;</p>
+<p class="p1"><span class="Apple-converted-space">                    </span>&lt;div class="terminal cyber-hover p-6 text-center"&gt;</p>
+<p class="p1"><span class="Apple-converted-space">                        </span>&lt;div class="text-3xl neon-text mb-2"&gt;⚡&lt;/div&gt;</p>
+<p class="p1"><span class="Apple-converted-space">                        </span>&lt;h3 class="text-xl font-bold text-green-400 mb-2"&gt;EXPLOITS&lt;/h3&gt;</p>
+<p class="p1"><span class="Apple-converted-space">                        </span>&lt;p class="text-2xl neon-text"&gt;127&lt;/p&gt;</p>
+<p class="p1"><span class="Apple-converted-space">                        </span>&lt;p class="text-sm text-gray-400"&gt;Vulnerabilidades documentadas&lt;/p&gt;</p>
+<p class="p1"><span class="Apple-converted-space">                    </span>&lt;/div&gt;</p>
+<p class="p1"><span class="Apple-converted-space">                    </span>&lt;div class="terminal cyber-hover p-6 text-center"&gt;</p>
+<p class="p1"><span class="Apple-converted-space">                        </span>&lt;div class="text-3xl neon-text mb-2"&gt;🔐&lt;/div&gt;</p>
+<p class="p1"><span class="Apple-converted-space">                        </span>&lt;h3 class="text-xl font-bold text-green-400 mb-2"&gt;SISTEMAS&lt;/h3&gt;</p>
+<p class="p1"><span class="Apple-converted-space">                        </span>&lt;p class="text-2xl neon-text"&gt;89&lt;/p&gt;</p>
+<p class="p1"><span class="Apple-converted-space">                        </span>&lt;p class="text-sm text-gray-400"&gt;Sistemas analizados&lt;/p&gt;</p>
+<p class="p1"><span class="Apple-converted-space">                    </span>&lt;/div&gt;</p>
+<p class="p1"><span class="Apple-converted-space">                    </span>&lt;div class="terminal cyber-hover p-6 text-center"&gt;</p>
+<p class="p1"><span class="Apple-converted-space">                        </span>&lt;div class="text-3xl neon-text mb-2"&gt;🛡️&lt;/div&gt;</p>
+<p class="p1"><span class="Apple-converted-space">                        </span>&lt;h3 class="text-xl font-bold text-green-400 mb-2"&gt;DEFENSES&lt;/h3&gt;</p>
+<p class="p1"><span class="Apple-converted-space">                        </span>&lt;p class="text-2xl neon-text"&gt;256&lt;/p&gt;</p>
+<p class="p1"><span class="Apple-converted-space">                        </span>&lt;p class="text-sm text-gray-400"&gt;Medidas de protección&lt;/p&gt;</p>
+<p class="p1"><span class="Apple-converted-space">                    </span>&lt;/div&gt;</p>
+<p class="p1"><span class="Apple-converted-space">                </span>&lt;/div&gt;</p>
+<p class="p2"><br></p>
+<p class="p1"><span class="Apple-converted-space">                </span>&lt;!-- Hacker Manifesto --&gt;</p>
+<p class="p1"><span class="Apple-converted-space">                </span>&lt;div class="terminal"&gt;</p>
+<p class="p1"><span class="Apple-converted-space">                    </span>&lt;div class="terminal-header"&gt;</p>
+<p class="p1"><span class="Apple-converted-space">                        </span>&lt;span class="text-red-500"&gt;root@BlasterMRX:~$&lt;/span&gt; &lt;span class="text-yellow-400"&gt;cat manifesto.txt&lt;/span&gt;</p>
+<p class="p1"><span class="Apple-converted-space">                    </span>&lt;/div&gt;</p>
+<p class="p1"><span class="Apple-converted-space">                    </span>&lt;div class="p-6"&gt;</p>
+<p class="p1"><span class="Apple-converted-space">                        </span>&lt;h2 class="text-2xl font-bold neon-text mb-4"&gt;MANIFIESTO HACKER&lt;/h2&gt;</p>
+<p class="p1"><span class="Apple-converted-space">                        </span>&lt;div class="text-gray-300 space-y-3"&gt;</p>
+<p class="p1"><span class="Apple-converted-space">                            </span>&lt;p&gt;&gt; La curiosidad es nuestro motor, el conocimiento nuestro combustible&lt;/p&gt;</p>
+<p class="p1"><span class="Apple-converted-space">                            </span>&lt;p&gt;&gt; Creemos en la libertad de información y la transparencia&lt;/p&gt;</p>
+<p class="p1"><span class="Apple-converted-space">                            </span>&lt;p&gt;&gt; El hacking ético protege, no destruye&lt;/p&gt;</p>
+<p class="p1"><span class="Apple-converted-space">                            </span>&lt;p&gt;&gt; Cada vulnerabilidad encontrada es una oportunidad de mejora&lt;/p&gt;</p>
+<p class="p1"><span class="Apple-converted-space">                            </span>&lt;p class="neon-red"&gt;&gt; "Hack the planet, but make it better"&lt;/p&gt;</p>
+<p class="p1"><span class="Apple-converted-space">                        </span>&lt;/div&gt;</p>
+<p class="p1"><span class="Apple-converted-space">                    </span>&lt;/div&gt;</p>
+<p class="p1"><span class="Apple-converted-space">                </span>&lt;/div&gt;</p>
+<p class="p1"><span class="Apple-converted-space">            </span>&lt;/div&gt;</p>
+<p class="p1"><span class="Apple-converted-space">        </span>&lt;/section&gt;</p>
+<p class="p2"><br></p>
+<p class="p1"><span class="Apple-converted-space">        </span>&lt;!-- Noticias Section --&gt;</p>
+<p class="p1"><span class="Apple-converted-space">        </span>&lt;section id="noticias" class="section-content hidden min-h-screen"&gt;</p>
+<p class="p1"><span class="Apple-converted-space">            </span>&lt;div class="max-w-6xl mx-auto px-4 py-16"&gt;</p>
+<p class="p1"><span class="Apple-converted-space">                </span>&lt;div class="terminal mb-8"&gt;</p>
+<p class="p1"><span class="Apple-converted-space">                    </span>&lt;div class="terminal-header"&gt;</p>
+<p class="p1"><span class="Apple-converted-space">                        </span>&lt;span class="text-red-500"&gt;root@BlasterMRX:~$&lt;/span&gt; &lt;span class="text-yellow-400"&gt;ls -la /news/&lt;/span&gt;</p>
+<p class="p1"><span class="Apple-converted-space">                    </span>&lt;/div&gt;</p>
+<p class="p1"><span class="Apple-converted-space">                    </span>&lt;div class="p-6"&gt;</p>
+<p class="p1"><span class="Apple-converted-space">                        </span>&lt;h2 class="text-3xl font-bold neon-text mb-4 glitch" data-text="NOTICIAS CYBERSEC"&gt;NOTICIAS CYBERSEC&lt;/h2&gt;</p>
+<p class="p1"><span class="Apple-converted-space">                        </span>&lt;p class="text-gray-300"&gt;Últimas actualizaciones del mundo de la ciberseguridad y hacking&lt;/p&gt;</p>
+<p class="p1"><span class="Apple-converted-space">                    </span>&lt;/div&gt;</p>
+<p class="p1"><span class="Apple-converted-space">                </span>&lt;/div&gt;</p>
+<p class="p2"><br></p>
+<p class="p1"><span class="Apple-converted-space">                </span>&lt;!-- News Categories --&gt;</p>
+<p class="p1"><span class="Apple-converted-space">                </span>&lt;div class="grid md:grid-cols-4 gap-4 mb-8"&gt;</p>
+<p class="p1"><span class="Apple-converted-space">                    </span>&lt;button onclick="filterNews('all')" class="terminal cyber-hover p-4 text-center"&gt;</p>
+<p class="p1"><span class="Apple-converted-space">                        </span>&lt;div class="text-2xl mb-2"&gt;📡&lt;/div&gt;</p>
+<p class="p1"><span class="Apple-converted-space">                        </span>&lt;div class="text-green-400 font-bold"&gt;TODAS&lt;/div&gt;</p>
+<p class="p1"><span class="Apple-converted-space">                    </span>&lt;/button&gt;</p>
+<p class="p1"><span class="Apple-converted-space">                    </span>&lt;button onclick="filterNews('exploits')" class="terminal cyber-hover p-4 text-center"&gt;</p>
+<p class="p1"><span class="Apple-converted-space">                        </span>&lt;div class="text-2xl mb-2"&gt;⚡&lt;/div&gt;</p>
+<p class="p1"><span class="Apple-converted-space">                        </span>&lt;div class="text-green-400 font-bold"&gt;EXPLOITS&lt;/div&gt;</p>
+<p class="p1"><span class="Apple-converted-space">                    </span>&lt;/button&gt;</p>
+<p class="p1"><span class="Apple-converted-space">                    </span>&lt;button onclick="filterNews('breaches')" class="terminal cyber-hover p-4 text-center"&gt;</p>
+<p class="p1"><span class="Apple-converted-space">                        </span>&lt;div class="text-2xl mb-2"&gt;🚨&lt;/div&gt;</p>
+<p class="p1"><span class="Apple-converted-space">                        </span>&lt;div class="text-green-400 font-bold"&gt;BRECHAS&lt;/div&gt;</p>
+<p class="p1"><span class="Apple-converted-space">                    </span>&lt;/button&gt;</p>
+<p class="p1"><span class="Apple-converted-space">                    </span>&lt;button onclick="filterNews('tools')" class="terminal cyber-hover p-4 text-center"&gt;</p>
+<p class="p1"><span class="Apple-converted-space">                        </span>&lt;div class="text-2xl mb-2"&gt;🔧&lt;/div&gt;</p>
+<p class="p1"><span class="Apple-converted-space">                        </span>&lt;div class="text-green-400 font-bold"&gt;TOOLS&lt;/div&gt;</p>
+<p class="p1"><span class="Apple-converted-space">                    </span>&lt;/button&gt;</p>
+<p class="p1"><span class="Apple-converted-space">                </span>&lt;/div&gt;</p>
+<p class="p2"><br></p>
+<p class="p1"><span class="Apple-converted-space">                </span>&lt;!-- News Grid --&gt;</p>
+<p class="p1"><span class="Apple-converted-space">                </span>&lt;div class="grid lg:grid-cols-2 gap-6" id="news-grid"&gt;</p>
+<p class="p1"><span class="Apple-converted-space">                    </span>&lt;article class="terminal cyber-hover p-6" data-category="exploits"&gt;</p>
+<p class="p1"><span class="Apple-converted-space">                        </span>&lt;div class="flex items-center mb-3"&gt;</p>
+<p class="p1"><span class="Apple-converted-space">                            </span>&lt;span class="text-red-500 mr-2"&gt;[CRITICAL]&lt;/span&gt;</p>
+<p class="p1"><span class="Apple-converted-space">                            </span>&lt;span class="text-gray-400 text-sm"&gt;2024-12-15 14:30:00&lt;/span&gt;</p>
+<p class="p1"><span class="Apple-converted-space">                        </span>&lt;/div&gt;</p>
+<p class="p1"><span class="Apple-converted-space">                        </span>&lt;h3 class="text-xl font-bold text-green-400 mb-3"&gt;Nueva vulnerabilidad 0-day en Apache Struts&lt;/h3&gt;</p>
+<p class="p1"><span class="Apple-converted-space">                        </span>&lt;p class="text-gray-300 mb-4"&gt;Descubierta vulnerabilidad crítica que permite ejecución remota de código. CVE-2024-XXXX afecta versiones 2.5.x...&lt;/p&gt;</p>
+<p class="p1"><span class="Apple-converted-space">                        </span>&lt;button onclick="showArticle('apache-struts')" class="text-yellow-400 hover:text-white transition-colors"&gt;[LEER_MÁS]&lt;/button&gt;</p>
+<p class="p1"><span class="Apple-converted-space">                    </span>&lt;/article&gt;</p>
+<p class="p2"><br></p>
+<p class="p1"><span class="Apple-converted-space">                    </span>&lt;article class="terminal cyber-hover p-6" data-category="breaches"&gt;</p>
+<p class="p1"><span class="Apple-converted-space">                        </span>&lt;div class="flex items-center mb-3"&gt;</p>
+<p class="p1"><span class="Apple-converted-space">                            </span>&lt;span class="text-orange-500 mr-2"&gt;[BREACH]&lt;/span&gt;</p>
+<p class="p1"><span class="Apple-converted-space">                            </span>&lt;span class="text-gray-400 text-sm"&gt;2024-12-15 12:15:00&lt;/span&gt;</p>
+<p class="p1"><span class="Apple-converted-space">                        </span>&lt;/div&gt;</p>
+<p class="p1"><span class="Apple-converted-space">                        </span>&lt;h3 class="text-xl font-bold text-green-400 mb-3"&gt;Filtración masiva de datos en empresa tecnológica&lt;/h3&gt;</p>
+<p class="p1"><span class="Apple-converted-space">                        </span>&lt;p class="text-gray-300 mb-4"&gt;Más de 2 millones de registros comprometidos incluyendo credenciales y datos personales...&lt;/p&gt;</p>
+<p class="p1"><span class="Apple-converted-space">                        </span>&lt;button onclick="showArticle('data-breach')" class="text-yellow-400 hover:text-white transition-colors"&gt;[LEER_MÁS]&lt;/button&gt;</p>
+<p class="p1"><span class="Apple-converted-space">                    </span>&lt;/article&gt;</p>
+<p class="p2"><br></p>
+<p class="p1"><span class="Apple-converted-space">                    </span>&lt;article class="terminal cyber-hover p-6" data-category="tools"&gt;</p>
+<p class="p1"><span class="Apple-converted-space">                        </span>&lt;div class="flex items-center mb-3"&gt;</p>
+<p class="p1"><span class="Apple-converted-space">                            </span>&lt;span class="text-blue-500 mr-2"&gt;[TOOL]&lt;/span&gt;</p>
+<p class="p1"><span class="Apple-converted-space">                            </span>&lt;span class="text-gray-400 text-sm"&gt;2024-12-15 10:45:00&lt;/span&gt;</p>
+<p class="p1"><span class="Apple-converted-space">                        </span>&lt;/div&gt;</p>
+<p class="p1"><span class="Apple-converted-space">                        </span>&lt;h3 class="text-xl font-bold text-green-400 mb-3"&gt;Nuevo framework de pentesting lanzado&lt;/h3&gt;</p>
+<p class="p1"><span class="Apple-converted-space">                        </span>&lt;p class="text-gray-300 mb-4"&gt;HackFramework 3.0 incluye módulos avanzados para testing de aplicaciones web y móviles...&lt;/p&gt;</p>
+<p class="p1"><span class="Apple-converted-space">                        </span>&lt;button onclick="showArticle('hack-framework')" class="text-yellow-400 hover:text-white transition-colors"&gt;[LEER_MÁS]&lt;/button&gt;</p>
+<p class="p1"><span class="Apple-converted-space">                    </span>&lt;/article&gt;</p>
+<p class="p2"><br></p>
+<p class="p1"><span class="Apple-converted-space">                    </span>&lt;article class="terminal cyber-hover p-6" data-category="exploits"&gt;</p>
+<p class="p1"><span class="Apple-converted-space">                        </span>&lt;div class="flex items-center mb-3"&gt;</p>
+<p class="p1"><span class="Apple-converted-space">                            </span>&lt;span class="text-red-500 mr-2"&gt;[EXPLOIT]&lt;/span&gt;</p>
+<p class="p1"><span class="Apple-converted-space">                            </span>&lt;span class="text-gray-400 text-sm"&gt;2024-12-15 08:20:00&lt;/span&gt;</p>
+<p class="p1"><span class="Apple-converted-space">                        </span>&lt;/div&gt;</p>
+<p class="p1"><span class="Apple-converted-space">                        </span>&lt;h3 class="text-xl font-bold text-green-400 mb-3"&gt;Bypass de autenticación en sistemas Windows&lt;/h3&gt;</p>
+<p class="p1"><span class="Apple-converted-space">                        </span>&lt;p class="text-gray-300 mb-4"&gt;Técnica permite escalada de privilegios en sistemas Windows 10/11 sin parches...&lt;/p&gt;</p>
+<p class="p1"><span class="Apple-converted-space">                        </span>&lt;button onclick="showArticle('windows-bypass')" class="text-yellow-400 hover:text-white transition-colors"&gt;[LEER_MÁS]&lt;/button&gt;</p>
+<p class="p1"><span class="Apple-converted-space">                    </span>&lt;/article&gt;</p>
+<p class="p1"><span class="Apple-converted-space">                </span>&lt;/div&gt;</p>
+<p class="p1"><span class="Apple-converted-space">            </span>&lt;/div&gt;</p>
+<p class="p1"><span class="Apple-converted-space">        </span>&lt;/section&gt;</p>
+<p class="p2"><br></p>
+<p class="p1"><span class="Apple-converted-space">        </span>&lt;!-- Blog Section --&gt;</p>
+<p class="p1"><span class="Apple-converted-space">        </span>&lt;section id="blog" class="section-content hidden min-h-screen"&gt;</p>
+<p class="p1"><span class="Apple-converted-space">            </span>&lt;div class="max-w-6xl mx-auto px-4 py-16"&gt;</p>
+<p class="p1"><span class="Apple-converted-space">                </span>&lt;div class="terminal mb-8"&gt;</p>
+<p class="p1"><span class="Apple-converted-space">                    </span>&lt;div class="terminal-header"&gt;</p>
+<p class="p1"><span class="Apple-converted-space">                        </span>&lt;span class="text-red-500"&gt;root@BlasterMRX:~$&lt;/span&gt; &lt;span class="text-yellow-400"&gt;cat /var/log/hacking_journey.log&lt;/span&gt;</p>
+<p class="p1"><span class="Apple-converted-space">                    </span>&lt;/div&gt;</p>
+<p class="p1"><span class="Apple-converted-space">                    </span>&lt;div class="p-6"&gt;</p>
+<p class="p1"><span class="Apple-converted-space">                        </span>&lt;h2 class="text-3xl font-bold neon-text mb-4 glitch" data-text="BLOG PERSONAL"&gt;BLOG PERSONAL&lt;/h2&gt;</p>
+<p class="p1"><span class="Apple-converted-space">                        </span>&lt;p class="text-gray-300"&gt;Mis reflexiones, avances y descubrimientos en el mundo del hacking ético&lt;/p&gt;</p>
+<p class="p1"><span class="Apple-converted-space">                    </span>&lt;/div&gt;</p>
+<p class="p1"><span class="Apple-converted-space">                </span>&lt;/div&gt;</p>
+<p class="p2"><br></p>
+<p class="p1"><span class="Apple-converted-space">                </span>&lt;!-- Blog Posts --&gt;</p>
+<p class="p1"><span class="Apple-converted-space">                </span>&lt;div class="space-y-6"&gt;</p>
+<p class="p1"><span class="Apple-converted-space">                    </span>&lt;article class="terminal cyber-hover p-6"&gt;</p>
+<p class="p1"><span class="Apple-converted-space">                        </span>&lt;div class="flex items-center mb-3"&gt;</p>
+<p class="p1"><span class="Apple-converted-space">                            </span>&lt;span class="text-green-500 mr-2"&gt;[PERSONAL]&lt;/span&gt;</p>
+<p class="p1"><span class="Apple-converted-space">                            </span>&lt;span class="text-gray-400 text-sm"&gt;2024-12-15&lt;/span&gt;</p>
+<p class="p1"><span class="Apple-converted-space">                        </span>&lt;/div&gt;</p>
+<p class="p1"><span class="Apple-converted-space">                        </span>&lt;h3 class="text-2xl font-bold text-green-400 mb-3"&gt;Mi primer CTF: Lecciones aprendidas&lt;/h3&gt;</p>
+<p class="p1"><span class="Apple-converted-space">                        </span>&lt;p class="text-gray-300 mb-4"&gt;</p>
+<p class="p1"><span class="Apple-converted-space">                            </span>Ayer completé mi primer Capture The Flag y quiero compartir las lecciones más importantes que aprendí.<span class="Apple-converted-space"> </span></p>
+<p class="p1"><span class="Apple-converted-space">                            </span>La preparación mental es tan importante como el conocimiento técnico...</p>
+<p class="p1"><span class="Apple-converted-space">                        </span>&lt;/p&gt;</p>
+<p class="p1"><span class="Apple-converted-space">                        </span>&lt;div class="flex flex-wrap gap-2 mb-4"&gt;</p>
+<p class="p1"><span class="Apple-converted-space">                            </span>&lt;span class="bg-green-900 text-green-300 px-2 py-1 rounded text-sm"&gt;#CTF&lt;/span&gt;</p>
+<p class="p1"><span class="Apple-converted-space">                            </span>&lt;span class="bg-blue-900 text-blue-300 px-2 py-1 rounded text-sm"&gt;#Aprendizaje&lt;/span&gt;</p>
+<p class="p1"><span class="Apple-converted-space">                            </span>&lt;span class="bg-purple-900 text-purple-300 px-2 py-1 rounded text-sm"&gt;#Experiencia&lt;/span&gt;</p>
+<p class="p1"><span class="Apple-converted-space">                        </span>&lt;/div&gt;</p>
+<p class="p1"><span class="Apple-converted-space">                        </span>&lt;button onclick="showBlogPost('first-ctf')" class="text-yellow-400 hover:text-white transition-colors"&gt;[LEER_COMPLETO]&lt;/button&gt;</p>
+<p class="p1"><span class="Apple-converted-space">                    </span>&lt;/article&gt;</p>
+<p class="p2"><br></p>
+<p class="p1"><span class="Apple-converted-space">                    </span>&lt;article class="terminal cyber-hover p-6"&gt;</p>
+<p class="p1"><span class="Apple-converted-space">                        </span>&lt;div class="flex items-center mb-3"&gt;</p>
+<p class="p1"><span class="Apple-converted-space">                            </span>&lt;span class="text-blue-500 mr-2"&gt;[TÉCNICO]&lt;/span&gt;</p>
+<p class="p1"><span class="Apple-converted-space">                            </span>&lt;span class="text-gray-400 text-sm"&gt;2024-12-12&lt;/span&gt;</p>
+<p class="p1"><span class="Apple-converted-space">                        </span>&lt;/div&gt;</p>
+<p class="p1"><span class="Apple-converted-space">                        </span>&lt;h3 class="text-2xl font-bold text-green-400 mb-3"&gt;Automatizando reconocimiento con Python&lt;/h3&gt;</p>
+<p class="p1"><span class="Apple-converted-space">                        </span>&lt;p class="text-gray-300 mb-4"&gt;</p>
+<p class="p1"><span class="Apple-converted-space">                            </span>He estado trabajando en un script que automatiza la fase de reconocimiento en pentesting.<span class="Apple-converted-space"> </span></p>
+<p class="p1"><span class="Apple-converted-space">                            </span>Combina nmap, dirb y otras herramientas en un workflow eficiente...</p>
+<p class="p1"><span class="Apple-converted-space">                        </span>&lt;/p&gt;</p>
+<p class="p1"><span class="Apple-converted-space">                        </span>&lt;div class="flex flex-wrap gap-2 mb-4"&gt;</p>
+<p class="p1"><span class="Apple-converted-space">                            </span>&lt;span class="bg-yellow-900 text-yellow-300 px-2 py-1 rounded text-sm"&gt;#Python&lt;/span&gt;</p>
+<p class="p1"><span class="Apple-converted-space">                            </span>&lt;span class="bg-red-900 text-red-300 px-2 py-1 rounded text-sm"&gt;#Pentesting&lt;/span&gt;</p>
+<p class="p1"><span class="Apple-converted-space">                            </span>&lt;span class="bg-green-900 text-green-300 px-2 py-1 rounded text-sm"&gt;#Automatización&lt;/span&gt;</p>
+<p class="p1"><span class="Apple-converted-space">                        </span>&lt;/div&gt;</p>
+<p class="p1"><span class="Apple-converted-space">                        </span>&lt;button onclick="showBlogPost('python-recon')" class="text-yellow-400 hover:text-white transition-colors"&gt;[LEER_COMPLETO]&lt;/button&gt;</p>
+<p class="p1"><span class="Apple-converted-space">                    </span>&lt;/article&gt;</p>
+<p class="p2"><br></p>
+<p class="p1"><span class="Apple-converted-space">                    </span>&lt;article class="terminal cyber-hover p-6"&gt;</p>
+<p class="p1"><span class="Apple-converted-space">                        </span>&lt;div class="flex items-center mb-3"&gt;</p>
+<p class="p1"><span class="Apple-converted-space">                            </span>&lt;span class="text-purple-500 mr-2"&gt;[REFLEXIÓN]&lt;/span&gt;</p>
+<p class="p1"><span class="Apple-converted-space">                            </span>&lt;span class="text-gray-400 text-sm"&gt;2024-12-10&lt;/span&gt;</p>
+<p class="p1"><span class="Apple-converted-space">                        </span>&lt;/div&gt;</p>
+<p class="p1"><span class="Apple-converted-space">                        </span>&lt;h3 class="text-2xl font-bold text-green-400 mb-3"&gt;La ética en el hacking: Mi perspectiva&lt;/h3&gt;</p>
+<p class="p1"><span class="Apple-converted-space">                        </span>&lt;p class="text-gray-300 mb-4"&gt;</p>
+<p class="p1"><span class="Apple-converted-space">                            </span>Después de meses estudiando ciberseguridad, quiero reflexionar sobre la importancia de la ética<span class="Apple-converted-space"> </span></p>
+<p class="p1"><span class="Apple-converted-space">                            </span>en nuestro campo. El poder conlleva responsabilidad...</p>
+<p class="p1"><span class="Apple-converted-space">                        </span>&lt;/p&gt;</p>
+<p class="p1"><span class="Apple-converted-space">                        </span>&lt;div class="flex flex-wrap gap-2 mb-4"&gt;</p>
+<p class="p1"><span class="Apple-converted-space">                            </span>&lt;span class="bg-purple-900 text-purple-300 px-2 py-1 rounded text-sm"&gt;#Ética&lt;/span&gt;</p>
+<p class="p1"><span class="Apple-converted-space">                            </span>&lt;span class="bg-blue-900 text-blue-300 px-2 py-1 rounded text-sm"&gt;#Filosofía&lt;/span&gt;</p>
+<p class="p1"><span class="Apple-converted-space">                            </span>&lt;span class="bg-green-900 text-green-300 px-2 py-1 rounded text-sm"&gt;#Responsabilidad&lt;/span&gt;</p>
+<p class="p1"><span class="Apple-converted-space">                        </span>&lt;/div&gt;</p>
+<p class="p1"><span class="Apple-converted-space">                        </span>&lt;button onclick="showBlogPost('hacking-ethics')" class="text-yellow-400 hover:text-white transition-colors"&gt;[LEER_COMPLETO]&lt;/button&gt;</p>
+<p class="p1"><span class="Apple-converted-space">                    </span>&lt;/article&gt;</p>
+<p class="p1"><span class="Apple-converted-space">                </span>&lt;/div&gt;</p>
+<p class="p1"><span class="Apple-converted-space">            </span>&lt;/div&gt;</p>
+<p class="p1"><span class="Apple-converted-space">        </span>&lt;/section&gt;</p>
+<p class="p2"><br></p>
+<p class="p1"><span class="Apple-converted-space">        </span>&lt;!-- Tutoriales Section --&gt;</p>
+<p class="p1"><span class="Apple-converted-space">        </span>&lt;section id="tutoriales" class="section-content hidden min-h-screen"&gt;</p>
+<p class="p1"><span class="Apple-converted-space">            </span>&lt;div class="max-w-6xl mx-auto px-4 py-16"&gt;</p>
+<p class="p1"><span class="Apple-converted-space">                </span>&lt;div class="terminal mb-8"&gt;</p>
+<p class="p1"><span class="Apple-converted-space">                    </span>&lt;div class="terminal-header"&gt;</p>
+<p class="p1"><span class="Apple-converted-space">                        </span>&lt;span class="text-red-500"&gt;root@BlasterMRX:~$&lt;/span&gt; &lt;span class="text-yellow-400"&gt;find /tutorials/ -type f -name "*.md"&lt;/span&gt;</p>
+<p class="p1"><span class="Apple-converted-space">                    </span>&lt;/div&gt;</p>
+<p class="p1"><span class="Apple-converted-space">                    </span>&lt;div class="p-6"&gt;</p>
+<p class="p1"><span class="Apple-converted-space">                        </span>&lt;h2 class="text-3xl font-bold neon-text mb-4 glitch" data-text="TUTORIALES"&gt;TUTORIALES&lt;/h2&gt;</p>
+<p class="p1"><span class="Apple-converted-space">                        </span>&lt;p class="text-gray-300"&gt;Guías paso a paso para dominar las artes del hacking ético&lt;/p&gt;</p>
+<p class="p1"><span class="Apple-converted-space">                    </span>&lt;/div&gt;</p>
+<p class="p1"><span class="Apple-converted-space">                </span>&lt;/div&gt;</p>
+<p class="p2"><br></p>
+<p class="p1"><span class="Apple-converted-space">                </span>&lt;!-- Tutorial Categories --&gt;</p>
+<p class="p1"><span class="Apple-converted-space">                </span>&lt;div class="grid md:grid-cols-4 gap-4 mb-8"&gt;</p>
+<p class="p1"><span class="Apple-converted-space">                    </span>&lt;button onclick="showTutorialCategory('ethical-hacking')" class="tutorial-tab terminal cyber-hover p-4 text-center"&gt;</p>
+<p class="p1"><span class="Apple-converted-space">                        </span>&lt;div class="text-2xl mb-2"&gt;⚡&lt;/div&gt;</p>
+<p class="p1"><span class="Apple-converted-space">                        </span>&lt;div class="text-green-400 font-bold"&gt;HACKING ÉTICO&lt;/div&gt;</p>
+<p class="p1"><span class="Apple-converted-space">                    </span>&lt;/button&gt;</p>
+<p class="p1"><span class="Apple-converted-space">                    </span>&lt;button onclick="showTutorialCategory('linux')" class="tutorial-tab terminal cyber-hover p-4 text-center"&gt;</p>
+<p class="p1"><span class="Apple-converted-space">                        </span>&lt;div class="text-2xl mb-2"&gt;🐧&lt;/div&gt;</p>
+<p class="p1"><span class="Apple-converted-space">                        </span>&lt;div class="text-green-400 font-bold"&gt;LINUX&lt;/div&gt;</p>
+<p class="p1"><span class="Apple-converted-space">                    </span>&lt;/button&gt;</p>
+<p class="p1"><span class="Apple-converted-space">                    </span>&lt;button onclick="showTutorialCategory('networks')" class="tutorial-tab terminal cyber-hover p-4 text-center"&gt;</p>
+<p class="p1"><span class="Apple-converted-space">                        </span>&lt;div class="text-2xl mb-2"&gt;🌐&lt;/div&gt;</p>
+<p class="p1"><span class="Apple-converted-space">                        </span>&lt;div class="text-green-400 font-bold"&gt;REDES&lt;/div&gt;</p>
+<p class="p1"><span class="Apple-converted-space">                    </span>&lt;/button&gt;</p>
+<p class="p1"><span class="Apple-converted-space">                    </span>&lt;button onclick="showTutorialCategory('programming')" class="tutorial-tab terminal cyber-hover p-4 text-center"&gt;</p>
+<p class="p1"><span class="Apple-converted-space">                        </span>&lt;div class="text-2xl mb-2"&gt;💻&lt;/div&gt;</p>
+<p class="p1"><span class="Apple-converted-space">                        </span>&lt;div class="text-green-400 font-bold"&gt;PROGRAMACIÓN&lt;/div&gt;</p>
+<p class="p1"><span class="Apple-converted-space">                    </span>&lt;/button&gt;</p>
+<p class="p1"><span class="Apple-converted-space">                </span>&lt;/div&gt;</p>
+<p class="p2"><br></p>
+<p class="p1"><span class="Apple-converted-space">                </span>&lt;!-- Ethical Hacking Tutorials --&gt;</p>
+<p class="p1"><span class="Apple-converted-space">                </span>&lt;div id="ethical-hacking-tutorials" class="tutorial-category"&gt;</p>
+<p class="p1"><span class="Apple-converted-space">                    </span>&lt;div class="grid lg:grid-cols-2 gap-6"&gt;</p>
+<p class="p1"><span class="Apple-converted-space">                        </span>&lt;div class="terminal cyber-hover p-6"&gt;</p>
+<p class="p1"><span class="Apple-converted-space">                            </span>&lt;h3 class="text-xl font-bold text-green-400 mb-3"&gt;Introducción al Pentesting&lt;/h3&gt;</p>
+<p class="p1"><span class="Apple-converted-space">                            </span>&lt;div class="bg-black p-4 rounded mb-4 text-sm"&gt;</p>
+<p class="p1"><span class="Apple-converted-space">                                </span>&lt;span class="text-red-500"&gt;root@kali:~$&lt;/span&gt; &lt;span class="text-yellow-400"&gt;nmap -sS -O target.com&lt;/span&gt;&lt;br&gt;</p>
+<p class="p1"><span class="Apple-converted-space">                                </span>&lt;span class="text-green-400"&gt;Starting Nmap scan...&lt;/span&gt;</p>
+<p class="p1"><span class="Apple-converted-space">                            </span>&lt;/div&gt;</p>
+<p class="p1"><span class="Apple-converted-space">                            </span>&lt;p class="text-gray-300 mb-4"&gt;Aprende los fundamentos del pentesting ético desde cero&lt;/p&gt;</p>
+<p class="p1"><span class="Apple-converted-space">                            </span>&lt;button onclick="showTutorial('pentesting-intro')" class="text-yellow-400 hover:text-white transition-colors"&gt;[INICIAR_TUTORIAL]&lt;/button&gt;</p>
+<p class="p1"><span class="Apple-converted-space">                        </span>&lt;/div&gt;</p>
+<p class="p2"><br></p>
+<p class="p1"><span class="Apple-converted-space">                        </span>&lt;div class="terminal cyber-hover p-6"&gt;</p>
+<p class="p1"><span class="Apple-converted-space">                            </span>&lt;h3 class="text-xl font-bold text-green-400 mb-3"&gt;Web Application Security&lt;/h3&gt;</p>
+<p class="p1"><span class="Apple-converted-space">                            </span>&lt;div class="bg-black p-4 rounded mb-4 text-sm"&gt;</p>
+<p class="p1"><span class="Apple-converted-space">                                </span>&lt;span class="text-red-500"&gt;root@kali:~$&lt;/span&gt; &lt;span class="text-yellow-400"&gt;sqlmap -u "http://target.com/page?id=1"&lt;/span&gt;&lt;br&gt;</p>
+<p class="p1"><span class="Apple-converted-space">                                </span>&lt;span class="text-green-400"&gt;Testing for SQL injection...&lt;/span&gt;</p>
+<p class="p1"><span class="Apple-converted-space">                            </span>&lt;/div&gt;</p>
+<p class="p1"><span class="Apple-converted-space">                            </span>&lt;p class="text-gray-300 mb-4"&gt;Técnicas avanzadas para testing de aplicaciones web&lt;/p&gt;</p>
+<p class="p1"><span class="Apple-converted-space">                            </span>&lt;button onclick="showTutorial('web-security')" class="text-yellow-400 hover:text-white transition-colors"&gt;[INICIAR_TUTORIAL]&lt;/button&gt;</p>
+<p class="p1"><span class="Apple-converted-space">                        </span>&lt;/div&gt;</p>
+<p class="p1"><span class="Apple-converted-space">                    </span>&lt;/div&gt;</p>
+<p class="p1"><span class="Apple-converted-space">                </span>&lt;/div&gt;</p>
+<p class="p2"><br></p>
+<p class="p1"><span class="Apple-converted-space">                </span>&lt;!-- Linux Tutorials --&gt;</p>
+<p class="p1"><span class="Apple-converted-space">                </span>&lt;div id="linux-tutorials" class="tutorial-category hidden"&gt;</p>
+<p class="p1"><span class="Apple-converted-space">                    </span>&lt;div class="grid lg:grid-cols-2 gap-6"&gt;</p>
+<p class="p1"><span class="Apple-converted-space">                        </span>&lt;div class="terminal cyber-hover p-6"&gt;</p>
+<p class="p1"><span class="Apple-converted-space">                            </span>&lt;h3 class="text-xl font-bold text-green-400 mb-3"&gt;Comandos Esenciales de Linux&lt;/h3&gt;</p>
+<p class="p1"><span class="Apple-converted-space">                            </span>&lt;div class="bg-black p-4 rounded mb-4 text-sm"&gt;</p>
+<p class="p1"><span class="Apple-converted-space">                                </span>&lt;span class="text-green-400"&gt;user@linux:~$&lt;/span&gt; &lt;span class="text-yellow-400"&gt;ls -la | grep "config"&lt;/span&gt;&lt;br&gt;</p>
+<p class="p1"><span class="Apple-converted-space">                                </span>&lt;span class="text-white"&gt;-rw-r--r-- 1 user user 1024 Dec 15 config.txt&lt;/span&gt;</p>
+<p class="p1"><span class="Apple-converted-space">                            </span>&lt;/div&gt;</p>
+<p class="p1"><span class="Apple-converted-space">                            </span>&lt;p class="text-gray-300 mb-4"&gt;Domina la línea de comandos de Linux para hacking&lt;/p&gt;</p>
+<p class="p1"><span class="Apple-converted-space">                            </span>&lt;button onclick="showTutorial('linux-commands')" class="text-yellow-400 hover:text-white transition-colors"&gt;[INICIAR_TUTORIAL]&lt;/button&gt;</p>
+<p class="p1"><span class="Apple-converted-space">                        </span>&lt;/div&gt;</p>
+<p class="p2"><br></p>
+<p class="p1"><span class="Apple-converted-space">                        </span>&lt;div class="terminal cyber-hover p-6"&gt;</p>
+<p class="p1"><span class="Apple-converted-space">                            </span>&lt;h3 class="text-xl font-bold text-green-400 mb-3"&gt;Configuración de Kali Linux&lt;/h3&gt;</p>
+<p class="p1"><span class="Apple-converted-space">                            </span>&lt;div class="bg-black p-4 rounded mb-4 text-sm"&gt;</p>
+<p class="p1"><span class="Apple-converted-space">                                </span>&lt;span class="text-red-500"&gt;root@kali:~$&lt;/span&gt; &lt;span class="text-yellow-400"&gt;apt update &amp;&amp; apt upgrade&lt;/span&gt;&lt;br&gt;</p>
+<p class="p1"><span class="Apple-converted-space">                                </span>&lt;span class="text-green-400"&gt;Updating package lists...&lt;/span&gt;</p>
+<p class="p1"><span class="Apple-converted-space">                            </span>&lt;/div&gt;</p>
+<p class="p1"><span class="Apple-converted-space">                            </span>&lt;p class="text-gray-300 mb-4"&gt;Setup completo de Kali Linux para pentesting&lt;/p&gt;</p>
+<p class="p1"><span class="Apple-converted-space">                            </span>&lt;button onclick="showTutorial('kali-setup')" class="text-yellow-400 hover:text-white transition-colors"&gt;[INICIAR_TUTORIAL]&lt;/button&gt;</p>
+<p class="p1"><span class="Apple-converted-space">                        </span>&lt;/div&gt;</p>
+<p class="p1"><span class="Apple-converted-space">                    </span>&lt;/div&gt;</p>
+<p class="p1"><span class="Apple-converted-space">                </span>&lt;/div&gt;</p>
+<p class="p2"><br></p>
+<p class="p1"><span class="Apple-converted-space">                </span>&lt;!-- Networks Tutorials --&gt;</p>
+<p class="p1"><span class="Apple-converted-space">                </span>&lt;div id="networks-tutorials" class="tutorial-category hidden"&gt;</p>
+<p class="p1"><span class="Apple-converted-space">                    </span>&lt;div class="grid lg:grid-cols-2 gap-6"&gt;</p>
+<p class="p1"><span class="Apple-converted-space">                        </span>&lt;div class="terminal cyber-hover p-6"&gt;</p>
+<p class="p1"><span class="Apple-converted-space">                            </span>&lt;h3 class="text-xl font-bold text-green-400 mb-3"&gt;Análisis de Tráfico de Red&lt;/h3&gt;</p>
+<p class="p1"><span class="Apple-converted-space">                            </span>&lt;div class="bg-black p-4 rounded mb-4 text-sm"&gt;</p>
+<p class="p1"><span class="Apple-converted-space">                                </span>&lt;span class="text-red-500"&gt;root@kali:~$&lt;/span&gt; &lt;span class="text-yellow-400"&gt;wireshark -i eth0&lt;/span&gt;&lt;br&gt;</p>
+<p class="p1"><span class="Apple-converted-space">                                </span>&lt;span class="text-green-400"&gt;Capturing packets on eth0...&lt;/span&gt;</p>
+<p class="p1"><span class="Apple-converted-space">                            </span>&lt;/div&gt;</p>
+<p class="p1"><span class="Apple-converted-space">                            </span>&lt;p class="text-gray-300 mb-4"&gt;Aprende a analizar tráfico de red con Wireshark&lt;/p&gt;</p>
+<p class="p1"><span class="Apple-converted-space">                            </span>&lt;button onclick="showTutorial('network-analysis')" class="text-yellow-400 hover:text-white transition-colors"&gt;[INICIAR_TUTORIAL]&lt;/button&gt;</p>
+<p class="p1"><span class="Apple-converted-space">                        </span>&lt;/div&gt;</p>
+<p class="p2"><br></p>
+<p class="p1"><span class="Apple-converted-space">                        </span>&lt;div class="terminal cyber-hover p-6"&gt;</p>
+<p class="p1"><span class="Apple-converted-space">                            </span>&lt;h3 class="text-xl font-bold text-green-400 mb-3"&gt;Wireless Hacking&lt;/h3&gt;</p>
+<p class="p1"><span class="Apple-converted-space">                            </span>&lt;div class="bg-black p-4 rounded mb-4 text-sm"&gt;</p>
+<p class="p1"><span class="Apple-converted-space">                                </span>&lt;span class="text-red-500"&gt;root@kali:~$&lt;/span&gt; &lt;span class="text-yellow-400"&gt;aircrack-ng -w wordlist.txt capture.cap&lt;/span&gt;&lt;br&gt;</p>
+<p class="p1"><span class="Apple-converted-space">                                </span>&lt;span class="text-green-400"&gt;Cracking WPA handshake...&lt;/span&gt;</p>
+<p class="p1"><span class="Apple-converted-space">                            </span>&lt;/div&gt;</p>
+<p class="p1"><span class="Apple-converted-space">                            </span>&lt;p class="text-gray-300 mb-4"&gt;Técnicas de auditoría de redes inalámbricas&lt;/p&gt;</p>
+<p class="p1"><span class="Apple-converted-space">                            </span>&lt;button onclick="showTutorial('wireless-hacking')" class="text-yellow-400 hover:text-white transition-colors"&gt;[INICIAR_TUTORIAL]&lt;/button&gt;</p>
+<p class="p1"><span class="Apple-converted-space">                        </span>&lt;/div&gt;</p>
+<p class="p1"><span class="Apple-converted-space">                    </span>&lt;/div&gt;</p>
+<p class="p1"><span class="Apple-converted-space">                </span>&lt;/div&gt;</p>
+<p class="p2"><br></p>
+<p class="p1"><span class="Apple-converted-space">                </span>&lt;!-- Programming Tutorials --&gt;</p>
+<p class="p1"><span class="Apple-converted-space">                </span>&lt;div id="programming-tutorials" class="tutorial-category hidden"&gt;</p>
+<p class="p1"><span class="Apple-converted-space">                    </span>&lt;div class="grid lg:grid-cols-2 gap-6"&gt;</p>
+<p class="p1"><span class="Apple-converted-space">                        </span>&lt;div class="terminal cyber-hover p-6"&gt;</p>
+<p class="p1"><span class="Apple-converted-space">                            </span>&lt;h3 class="text-xl font-bold text-green-400 mb-3"&gt;Python para Hacking&lt;/h3&gt;</p>
+<p class="p1"><span class="Apple-converted-space">                            </span>&lt;div class="bg-black p-4 rounded mb-4 text-sm"&gt;</p>
+<p class="p1"><span class="Apple-converted-space">                                </span>&lt;span class="text-blue-400"&gt;import&lt;/span&gt; &lt;span class="text-yellow-400"&gt;socket&lt;/span&gt;&lt;br&gt;</p>
+<p class="p1"><span class="Apple-converted-space">                                </span>&lt;span class="text-green-400"&gt;s = socket.socket(socket.AF_INET, socket.SOCK_STREAM)&lt;/span&gt;&lt;br&gt;</p>
+<p class="p1"><span class="Apple-converted-space">                                </span>&lt;span class="text-green-400"&gt;s.connect(("target.com", 80))&lt;/span&gt;</p>
+<p class="p1"><span class="Apple-converted-space">                            </span>&lt;/div&gt;</p>
+<p class="p1"><span class="Apple-converted-space">                            </span>&lt;p class="text-gray-300 mb-4"&gt;Desarrolla herramientas de hacking con Python&lt;/p&gt;</p>
+<p class="p1"><span class="Apple-converted-space">                            </span>&lt;button onclick="showTutorial('python-hacking')" class="text-yellow-400 hover:text-white transition-colors"&gt;[INICIAR_TUTORIAL]&lt;/button&gt;</p>
+<p class="p1"><span class="Apple-converted-space">                        </span>&lt;/div&gt;</p>
+<p class="p2"><br></p>
+<p class="p1"><span class="Apple-converted-space">                        </span>&lt;div class="terminal cyber-hover p-6"&gt;</p>
+<p class="p1"><span class="Apple-converted-space">                            </span>&lt;h3 class="text-xl font-bold text-green-400 mb-3"&gt;JavaScript para Bug Bounty&lt;/h3&gt;</p>
+<p class="p1"><span class="Apple-converted-space">                            </span>&lt;div class="bg-black p-4 rounded mb-4 text-sm"&gt;</p>
+<p class="p1"><span class="Apple-converted-space">                                </span>&lt;span class="text-purple-400"&gt;function&lt;/span&gt; &lt;span class="text-yellow-400"&gt;xssPayload&lt;/span&gt;&lt;span class="text-white"&gt;() {&lt;/span&gt;&lt;br&gt;</p>
+<p class="p1"><span class="Apple-converted-space">                                </span>&lt;span class="text-green-400"&gt;<span class="Apple-converted-space">  </span>alert('XSS Vulnerability Found!');&lt;/span&gt;&lt;br&gt;</p>
+<p class="p1"><span class="Apple-converted-space">                                </span>&lt;span class="text-white"&gt;}&lt;/span&gt;</p>
+<p class="p1"><span class="Apple-converted-space">                            </span>&lt;/div&gt;</p>
+<p class="p1"><span class="Apple-converted-space">                            </span>&lt;p class="text-gray-300 mb-4"&gt;Explota vulnerabilidades web con JavaScript&lt;/p&gt;</p>
+<p class="p1"><span class="Apple-converted-space">                            </span>&lt;button onclick="showTutorial('js-bugbounty')" class="text-yellow-400 hover:text-white transition-colors"&gt;[INICIAR_TUTORIAL]&lt;/button&gt;</p>
+<p class="p1"><span class="Apple-converted-space">                        </span>&lt;/div&gt;</p>
+<p class="p1"><span class="Apple-converted-space">                    </span>&lt;/div&gt;</p>
+<p class="p1"><span class="Apple-converted-space">                </span>&lt;/div&gt;</p>
+<p class="p1"><span class="Apple-converted-space">            </span>&lt;/div&gt;</p>
+<p class="p1"><span class="Apple-converted-space">        </span>&lt;/section&gt;</p>
+<p class="p2"><br></p>
+<p class="p1"><span class="Apple-converted-space">        </span>&lt;!-- About Section --&gt;</p>
+<p class="p1"><span class="Apple-converted-space">        </span>&lt;section id="about" class="section-content hidden min-h-screen"&gt;</p>
+<p class="p1"><span class="Apple-converted-space">            </span>&lt;div class="max-w-6xl mx-auto px-4 py-16"&gt;</p>
+<p class="p1"><span class="Apple-converted-space">                </span>&lt;div class="terminal mb-8"&gt;</p>
+<p class="p1"><span class="Apple-converted-space">                    </span>&lt;div class="terminal-header"&gt;</p>
+<p class="p1"><span class="Apple-converted-space">                        </span>&lt;span class="text-red-500"&gt;root@BlasterMRX:~$&lt;/span&gt; &lt;span class="text-yellow-400"&gt;whoami &amp;&amp; cat /etc/passwd | grep BlasterMRX&lt;/span&gt;</p>
+<p class="p1"><span class="Apple-converted-space">                    </span>&lt;/div&gt;</p>
+<p class="p1"><span class="Apple-converted-space">                    </span>&lt;div class="p-6"&gt;</p>
+<p class="p1"><span class="Apple-converted-space">                        </span>&lt;h2 class="text-3xl font-bold neon-text mb-4 glitch" data-text="ABOUT BlasterMRX"&gt;ABOUT BlasterMRX&lt;/h2&gt;</p>
+<p class="p1"><span class="Apple-converted-space">                        </span>&lt;p class="text-gray-300"&gt;Información del sistema y filosofía hacker&lt;/p&gt;</p>
+<p class="p1"><span class="Apple-converted-space">                    </span>&lt;/div&gt;</p>
+<p class="p1"><span class="Apple-converted-space">                </span>&lt;/div&gt;</p>
+<p class="p2"><br></p>
+<p class="p1"><span class="Apple-converted-space">                </span>&lt;div class="grid lg:grid-cols-2 gap-8"&gt;</p>
+<p class="p1"><span class="Apple-converted-space">                    </span>&lt;!-- Profile --&gt;</p>
+<p class="p1"><span class="Apple-converted-space">                    </span>&lt;div class="terminal p-6"&gt;</p>
+<p class="p1"><span class="Apple-converted-space">                        </span>&lt;div class="terminal-header mb-4"&gt;</p>
+<p class="p1"><span class="Apple-converted-space">                            </span>&lt;span class="text-red-500"&gt;root@BlasterMRX:~$&lt;/span&gt; &lt;span class="text-yellow-400"&gt;cat profile.txt&lt;/span&gt;</p>
+<p class="p1"><span class="Apple-converted-space">                        </span>&lt;/div&gt;</p>
+<p class="p1"><span class="Apple-converted-space">                        </span>&lt;div class="text-center mb-6"&gt;</p>
+<p class="p1"><span class="Apple-converted-space">                            </span>&lt;div class="w-32 h-32 mx-auto mb-4 bg-gradient-to-r from-green-400 to-blue-500 rounded-full flex items-center justify-center text-4xl"&gt;</p>
+<p class="p1"><span class="Apple-converted-space">                                </span>👨‍💻</p>
+<p class="p1"><span class="Apple-converted-space">                            </span>&lt;/div&gt;</p>
+<p class="p1"><span class="Apple-converted-space">                            </span>&lt;h3 class="text-2xl font-bold neon-text"&gt;BlasterMRX&lt;/h3&gt;</p>
+<p class="p1"><span class="Apple-converted-space">                            </span>&lt;p class="text-gray-400"&gt;Ethical Hacker &amp; Cybersecurity Enthusiast&lt;/p&gt;</p>
+<p class="p1"><span class="Apple-converted-space">                        </span>&lt;/div&gt;</p>
+<p class="p2"><span class="Apple-converted-space">                        </span></p>
+<p class="p1"><span class="Apple-converted-space">                        </span>&lt;div class="space-y-3 text-sm"&gt;</p>
+<p class="p1"><span class="Apple-converted-space">                            </span>&lt;div&gt;&lt;span class="text-green-400"&gt;Status:&lt;/span&gt; &lt;span class="text-white"&gt;Active&lt;/span&gt;&lt;/div&gt;</p>
+<p class="p1"><span class="Apple-converted-space">                            </span>&lt;div&gt;&lt;span class="text-green-400"&gt;Level:&lt;/span&gt; &lt;span class="text-white"&gt;Intermediate&lt;/span&gt;&lt;/div&gt;</p>
+<p class="p1"><span class="Apple-converted-space">                            </span>&lt;div&gt;&lt;span class="text-green-400"&gt;Specialization:&lt;/span&gt; &lt;span class="text-white"&gt;Web App Security&lt;/span&gt;&lt;/div&gt;</p>
+<p class="p1"><span class="Apple-converted-space">                            </span>&lt;div&gt;&lt;span class="text-green-400"&gt;Location:&lt;/span&gt; &lt;span class="text-white"&gt;Cyberspace&lt;/span&gt;&lt;/div&gt;</p>
+<p class="p1"><span class="Apple-converted-space">                            </span>&lt;div&gt;&lt;span class="text-green-400"&gt;Mission:&lt;/span&gt; &lt;span class="text-white"&gt;Secure the digital world&lt;/span&gt;&lt;/div&gt;</p>
+<p class="p1"><span class="Apple-converted-space">                        </span>&lt;/div&gt;</p>
+<p class="p1"><span class="Apple-converted-space">                    </span>&lt;/div&gt;</p>
+<p class="p2"><br></p>
+<p class="p1"><span class="Apple-converted-space">                    </span>&lt;!-- Skills --&gt;</p>
+<p class="p1"><span class="Apple-converted-space">                    </span>&lt;div class="terminal p-6"&gt;</p>
+<p class="p1"><span class="Apple-converted-space">                        </span>&lt;div class="terminal-header mb-4"&gt;</p>
+<p class="p1"><span class="Apple-converted-space">                            </span>&lt;span class="text-red-500"&gt;root@BlasterMRX:~$&lt;/span&gt; &lt;span class="text-yellow-400"&gt;ls -la /skills/&lt;/span&gt;</p>
+<p class="p1"><span class="Apple-converted-space">                        </span>&lt;/div&gt;</p>
+<p class="p1"><span class="Apple-converted-space">                        </span>&lt;div class="space-y-4"&gt;</p>
+<p class="p1"><span class="Apple-converted-space">                            </span>&lt;div&gt;</p>
+<p class="p1"><span class="Apple-converted-space">                                </span>&lt;div class="flex justify-between mb-1"&gt;</p>
+<p class="p1"><span class="Apple-converted-space">                                    </span>&lt;span class="text-green-400"&gt;Penetration Testing&lt;/span&gt;</p>
+<p class="p1"><span class="Apple-converted-space">                                    </span>&lt;span class="text-white"&gt;85%&lt;/span&gt;</p>
+<p class="p1"><span class="Apple-converted-space">                                </span>&lt;/div&gt;</p>
+<p class="p1"><span class="Apple-converted-space">                                </span>&lt;div class="w-full bg-gray-700 rounded-full h-2"&gt;</p>
+<p class="p1"><span class="Apple-converted-space">                                    </span>&lt;div class="bg-green-500 h-2 rounded-full" style="width: 85%"&gt;&lt;/div&gt;</p>
+<p class="p1"><span class="Apple-converted-space">                                </span>&lt;/div&gt;</p>
+<p class="p1"><span class="Apple-converted-space">                            </span>&lt;/div&gt;</p>
+<p class="p1"><span class="Apple-converted-space">                            </span>&lt;div&gt;</p>
+<p class="p1"><span class="Apple-converted-space">                                </span>&lt;div class="flex justify-between mb-1"&gt;</p>
+<p class="p1"><span class="Apple-converted-space">                                    </span>&lt;span class="text-green-400"&gt;Python Scripting&lt;/span&gt;</p>
+<p class="p1"><span class="Apple-converted-space">                                    </span>&lt;span class="text-white"&gt;90%&lt;/span&gt;</p>
+<p class="p1"><span class="Apple-converted-space">                                </span>&lt;/div&gt;</p>
+<p class="p1"><span class="Apple-converted-space">                                </span>&lt;div class="w-full bg-gray-700 rounded-full h-2"&gt;</p>
+<p class="p1"><span class="Apple-converted-space">                                    </span>&lt;div class="bg-green-500 h-2 rounded-full" style="width: 90%"&gt;&lt;/div&gt;</p>
+<p class="p1"><span class="Apple-converted-space">                                </span>&lt;/div&gt;</p>
+<p class="p1"><span class="Apple-converted-space">                            </span>&lt;/div&gt;</p>
+<p class="p1"><span class="Apple-converted-space">                            </span>&lt;div&gt;</p>
+<p class="p1"><span class="Apple-converted-space">                                </span>&lt;div class="flex justify-between mb-1"&gt;</p>
+<p class="p1"><span class="Apple-converted-space">                                    </span>&lt;span class="text-green-400"&gt;Linux Administration&lt;/span&gt;</p>
+<p class="p1"><span class="Apple-converted-space">                                    </span>&lt;span class="text-white"&gt;80%&lt;/span&gt;</p>
+<p class="p1"><span class="Apple-converted-space">                                </span>&lt;/div&gt;</p>
+<p class="p1"><span class="Apple-converted-space">                                </span>&lt;div class="w-full bg-gray-700 rounded-full h-2"&gt;</p>
+<p class="p1"><span class="Apple-converted-space">                                    </span>&lt;div class="bg-green-500 h-2 rounded-full" style="width: 80%"&gt;&lt;/div&gt;</p>
+<p class="p1"><span class="Apple-converted-space">                                </span>&lt;/div&gt;</p>
+<p class="p1"><span class="Apple-converted-space">                            </span>&lt;/div&gt;</p>
+<p class="p1"><span class="Apple-converted-space">                            </span>&lt;div&gt;</p>
+<p class="p1"><span class="Apple-converted-space">                                </span>&lt;div class="flex justify-between mb-1"&gt;</p>
+<p class="p1"><span class="Apple-converted-space">                                    </span>&lt;span class="text-green-400"&gt;Web Security&lt;/span&gt;</p>
+<p class="p1"><span class="Apple-converted-space">                                    </span>&lt;span class="text-white"&gt;88%&lt;/span&gt;</p>
+<p class="p1"><span class="Apple-converted-space">                                </span>&lt;/div&gt;</p>
+<p class="p1"><span class="Apple-converted-space">                                </span>&lt;div class="w-full bg-gray-700 rounded-full h-2"&gt;</p>
+<p class="p1"><span class="Apple-converted-space">                                    </span>&lt;div class="bg-green-500 h-2 rounded-full" style="width: 88%"&gt;&lt;/div&gt;</p>
+<p class="p1"><span class="Apple-converted-space">                                </span>&lt;/div&gt;</p>
+<p class="p1"><span class="Apple-converted-space">                            </span>&lt;/div&gt;</p>
+<p class="p1"><span class="Apple-converted-space">                        </span>&lt;/div&gt;</p>
+<p class="p1"><span class="Apple-converted-space">                    </span>&lt;/div&gt;</p>
+<p class="p1"><span class="Apple-converted-space">                </span>&lt;/div&gt;</p>
+<p class="p2"><br></p>
+<p class="p1"><span class="Apple-converted-space">                </span>&lt;!-- Philosophy --&gt;</p>
+<p class="p1"><span class="Apple-converted-space">                </span>&lt;div class="terminal mt-8"&gt;</p>
+<p class="p1"><span class="Apple-converted-space">                    </span>&lt;div class="terminal-header"&gt;</p>
+<p class="p1"><span class="Apple-converted-space">                        </span>&lt;span class="text-red-500"&gt;root@BlasterMRX:~$&lt;/span&gt; &lt;span class="text-yellow-400"&gt;cat philosophy.md&lt;/span&gt;</p>
+<p class="p1"><span class="Apple-converted-space">                    </span>&lt;/div&gt;</p>
+<p class="p1"><span class="Apple-converted-space">                    </span>&lt;div class="p-6"&gt;</p>
+<p class="p1"><span class="Apple-converted-space">                        </span>&lt;h3 class="text-2xl font-bold neon-text mb-4"&gt;FILOSOFÍA HACKER&lt;/h3&gt;</p>
+<p class="p1"><span class="Apple-converted-space">                        </span>&lt;div class="text-gray-300 space-y-4"&gt;</p>
+<p class="p1"><span class="Apple-converted-space">                            </span>&lt;p&gt;&gt; &lt;span class="text-green-400"&gt;Transparencia:&lt;/span&gt; El conocimiento debe ser libre y accesible&lt;/p&gt;</p>
+<p class="p1"><span class="Apple-converted-space">                            </span>&lt;p&gt;&gt; &lt;span class="text-green-400"&gt;Responsabilidad:&lt;/span&gt; Con gran poder viene gran responsabilidad&lt;/p&gt;</p>
+<p class="p1"><span class="Apple-converted-space">                            </span>&lt;p&gt;&gt; &lt;span class="text-green-400"&gt;Mejora continua:&lt;/span&gt; Cada día es una oportunidad para aprender&lt;/p&gt;</p>
+<p class="p1"><span class="Apple-converted-space">                            </span>&lt;p&gt;&gt; &lt;span class="text-green-400"&gt;Ética:&lt;/span&gt; Usar habilidades para proteger, no para dañar&lt;/p&gt;</p>
+<p class="p1"><span class="Apple-converted-space">                            </span>&lt;p&gt;&gt; &lt;span class="text-green-400"&gt;Comunidad:&lt;/span&gt; Compartir conocimiento fortalece a todos&lt;/p&gt;</p>
+<p class="p1"><span class="Apple-converted-space">                        </span>&lt;/div&gt;</p>
+<p class="p1"><span class="Apple-converted-space">                    </span>&lt;/div&gt;</p>
+<p class="p1"><span class="Apple-converted-space">                </span>&lt;/div&gt;</p>
+<p class="p2"><br></p>
+<p class="p1"><span class="Apple-converted-space">                </span>&lt;!-- Contact --&gt;</p>
+<p class="p1"><span class="Apple-converted-space">                </span>&lt;div class="terminal mt-8"&gt;</p>
+<p class="p1"><span class="Apple-converted-space">                    </span>&lt;div class="terminal-header"&gt;</p>
+<p class="p1"><span class="Apple-converted-space">                        </span>&lt;span class="text-red-500"&gt;root@BlasterMRX:~$&lt;/span&gt; &lt;span class="text-yellow-400"&gt;cat contact.info&lt;/span&gt;</p>
+<p class="p1"><span class="Apple-converted-space">                    </span>&lt;/div&gt;</p>
+<p class="p1"><span class="Apple-converted-space">                    </span>&lt;div class="p-6"&gt;</p>
+<p class="p1"><span class="Apple-converted-space">                        </span>&lt;h3 class="text-2xl font-bold neon-text mb-4"&gt;CONTACTO&lt;/h3&gt;</p>
+<p class="p1"><span class="Apple-converted-space">                        </span>&lt;div class="grid md:grid-cols-2 gap-6"&gt;</p>
+<p class="p1"><span class="Apple-converted-space">                            </span>&lt;div&gt;</p>
+<p class="p1"><span class="Apple-converted-space">                                </span>&lt;h4 class="text-green-400 font-bold mb-2"&gt;Canales Seguros:&lt;/h4&gt;</p>
+<p class="p1"><span class="Apple-converted-space">                                </span>&lt;div class="space-y-2 text-sm"&gt;</p>
+<p class="p1"><span class="Apple-converted-space">                                    </span>&lt;div&gt;&lt;span class="text-gray-400"&gt;Email:&lt;/span&gt; &lt;span class="text-white"&gt;blaster@protonmail.com&lt;/span&gt;&lt;/div&gt;</p>
+<p class="p1"><span class="Apple-converted-space">                                    </span>&lt;div&gt;&lt;span class="text-gray-400"&gt;PGP Key:&lt;/span&gt; &lt;span class="text-white"&gt;0x1234567890ABCDEF&lt;/span&gt;&lt;/div&gt;</p>
+<p class="p1"><span class="Apple-converted-space">                                    </span>&lt;div&gt;&lt;span class="text-gray-400"&gt;Signal:&lt;/span&gt; &lt;span class="text-white"&gt;+1-XXX-XXX-XXXX&lt;/span&gt;&lt;/div&gt;</p>
+<p class="p1"><span class="Apple-converted-space">                                </span>&lt;/div&gt;</p>
+<p class="p1"><span class="Apple-converted-space">                            </span>&lt;/div&gt;</p>
+<p class="p1"><span class="Apple-converted-space">                            </span>&lt;div&gt;</p>
+<p class="p1"><span class="Apple-converted-space">                                </span>&lt;h4 class="text-green-400 font-bold mb-2"&gt;Redes Sociales:&lt;/h4&gt;</p>
+<p class="p1"><span class="Apple-converted-space">                                </span>&lt;div class="space-y-2 text-sm"&gt;</p>
+<p class="p1"><span class="Apple-converted-space">                                    </span>&lt;div&gt;&lt;span class="text-gray-400"&gt;GitHub:&lt;/span&gt; &lt;span class="text-white"&gt;github.com/BlasterMRX&lt;/span&gt;&lt;/div&gt;</p>
+<p class="p1"><span class="Apple-converted-space">                                    </span>&lt;div&gt;&lt;span class="text-gray-400"&gt;Twitter:&lt;/span&gt; &lt;span class="text-white"&gt;@BlasterMRX_Sec&lt;/span&gt;&lt;/div&gt;</p>
+<p class="p1"><span class="Apple-converted-space">                                    </span>&lt;div&gt;&lt;span class="text-gray-400"&gt;LinkedIn:&lt;/span&gt; &lt;span class="text-white"&gt;linkedin.com/in/blastermrx&lt;/span&gt;&lt;/div&gt;</p>
+<p class="p1"><span class="Apple-converted-space">                                </span>&lt;/div&gt;</p>
+<p class="p1"><span class="Apple-converted-space">                            </span>&lt;/div&gt;</p>
+<p class="p1"><span class="Apple-converted-space">                        </span>&lt;/div&gt;</p>
+<p class="p1"><span class="Apple-converted-space">                    </span>&lt;/div&gt;</p>
+<p class="p1"><span class="Apple-converted-space">                </span>&lt;/div&gt;</p>
+<p class="p1"><span class="Apple-converted-space">            </span>&lt;/div&gt;</p>
+<p class="p1"><span class="Apple-converted-space">        </span>&lt;/section&gt;</p>
+<p class="p1"><span class="Apple-converted-space">    </span>&lt;/main&gt;</p>
+<p class="p2"><br></p>
+<p class="p1"><span class="Apple-converted-space">    </span>&lt;!-- Footer --&gt;</p>
+<p class="p1"><span class="Apple-converted-space">    </span>&lt;footer class="terminal mt-16"&gt;</p>
+<p class="p1"><span class="Apple-converted-space">        </span>&lt;div class="terminal-header"&gt;</p>
+<p class="p1"><span class="Apple-converted-space">            </span>&lt;span class="text-red-500"&gt;root@BlasterMRX:~$&lt;/span&gt; &lt;span class="text-yellow-400"&gt;cat footer.txt&lt;/span&gt;</p>
+<p class="p1"><span class="Apple-converted-space">        </span>&lt;/div&gt;</p>
+<p class="p1"><span class="Apple-converted-space">        </span>&lt;div class="max-w-6xl mx-auto px-4 py-8"&gt;</p>
+<p class="p1"><span class="Apple-converted-space">            </span>&lt;div class="grid md:grid-cols-3 gap-8"&gt;</p>
+<p class="p1"><span class="Apple-converted-space">                </span>&lt;div&gt;</p>
+<p class="p1"><span class="Apple-converted-space">                    </span>&lt;h3 class="text-xl font-bold neon-text mb-4"&gt;BlasterMRX Terminal&lt;/h3&gt;</p>
+<p class="p1"><span class="Apple-converted-space">                    </span>&lt;p class="text-gray-400"&gt;Dedicated to ethical hacking and cybersecurity education&lt;/p&gt;</p>
+<p class="p1"><span class="Apple-converted-space">                </span>&lt;/div&gt;</p>
+<p class="p1"><span class="Apple-converted-space">                </span>&lt;div&gt;</p>
+<p class="p1"><span class="Apple-converted-space">                    </span>&lt;h4 class="font-bold text-green-400 mb-4"&gt;Quick Access&lt;/h4&gt;</p>
+<p class="p1"><span class="Apple-converted-space">                    </span>&lt;div class="space-y-2 text-sm"&gt;</p>
+<p class="p1"><span class="Apple-converted-space">                        </span>&lt;button onclick="showSection('noticias')" class="block text-gray-400 hover:text-white transition-colors"&gt;[NOTICIAS]&lt;/button&gt;</p>
+<p class="p1"><span class="Apple-converted-space">                        </span>&lt;button onclick="showSection('tutoriales')" class="block text-gray-400 hover:text-white transition-colors"&gt;[TUTORIALES]&lt;/button&gt;</p>
+<p class="p1"><span class="Apple-converted-space">                        </span>&lt;button onclick="showSection('blog')" class="block text-gray-400 hover:text-white transition-colors"&gt;[BLOG]&lt;/button&gt;</p>
+<p class="p1"><span class="Apple-converted-space">                    </span>&lt;/div&gt;</p>
+<p class="p1"><span class="Apple-converted-space">                </span>&lt;/div&gt;</p>
+<p class="p1"><span class="Apple-converted-space">                </span>&lt;div&gt;</p>
+<p class="p1"><span class="Apple-converted-space">                    </span>&lt;h4 class="font-bold text-green-400 mb-4"&gt;System Status&lt;/h4&gt;</p>
+<p class="p1"><span class="Apple-converted-space">                    </span>&lt;div class="space-y-1 text-sm"&gt;</p>
+<p class="p1"><span class="Apple-converted-space">                        </span>&lt;div&gt;&lt;span class="text-green-400"&gt;●&lt;/span&gt; All systems operational&lt;/div&gt;</p>
+<p class="p1"><span class="Apple-converted-space">                        </span>&lt;div&gt;&lt;span class="text-green-400"&gt;●&lt;/span&gt; Security protocols active&lt;/div&gt;</p>
+<p class="p1"><span class="Apple-converted-space">                        </span>&lt;div&gt;&lt;span class="text-green-400"&gt;●&lt;/span&gt; Firewall enabled&lt;/div&gt;</p>
+<p class="p1"><span class="Apple-converted-space">                    </span>&lt;/div&gt;</p>
+<p class="p1"><span class="Apple-converted-space">                </span>&lt;/div&gt;</p>
+<p class="p1"><span class="Apple-converted-space">            </span>&lt;/div&gt;</p>
+<p class="p1"><span class="Apple-converted-space">            </span>&lt;div class="border-t border-green-500 mt-8 pt-4 text-center text-gray-400 text-sm"&gt;</p>
+<p class="p1"><span class="Apple-converted-space">                </span>&lt;p&gt;&amp;copy; 2024 BlasterMRX. All rights reserved. | "Knowledge is power, use it responsibly"&lt;/p&gt;</p>
+<p class="p1"><span class="Apple-converted-space">            </span>&lt;/div&gt;</p>
+<p class="p1"><span class="Apple-converted-space">        </span>&lt;/div&gt;</p>
+<p class="p1"><span class="Apple-converted-space">    </span>&lt;/footer&gt;</p>
+<p class="p2"><br></p>
+<p class="p1"><span class="Apple-converted-space">    </span>&lt;script&gt;</p>
+<p class="p1"><span class="Apple-converted-space">        </span>// Matrix Rain Effect</p>
+<p class="p1"><span class="Apple-converted-space">        </span>function createMatrixRain() {</p>
+<p class="p1"><span class="Apple-converted-space">            </span>const matrix = document.getElementById('matrix');</p>
+<p class="p1"><span class="Apple-converted-space">            </span>const chars = '01アイウエオカキクケコサシスセソタチツテトナニヌネノハヒフヘホマミムメモヤユヨラリルレロワヲン';</p>
+<p class="p2"><span class="Apple-converted-space">            </span></p>
+<p class="p1"><span class="Apple-converted-space">            </span>for (let i = 0; i &lt; 50; i++) {</p>
+<p class="p1"><span class="Apple-converted-space">                </span>const char = document.createElement('div');</p>
+<p class="p1"><span class="Apple-converted-space">                </span>char.className = 'matrix-char';</p>
+<p class="p1"><span class="Apple-converted-space">                </span>char.textContent = chars[Math.floor(Math.random() * chars.length)];</p>
+<p class="p1"><span class="Apple-converted-space">                </span>char.style.left = Math.random() * 100 + '%';</p>
+<p class="p1"><span class="Apple-converted-space">                </span>char.style.animationDuration = (Math.random() * 3 + 2) + 's';</p>
+<p class="p1"><span class="Apple-converted-space">                </span>char.style.animationDelay = Math.random() * 2 + 's';</p>
+<p class="p1"><span class="Apple-converted-space">                </span>matrix.appendChild(char);</p>
+<p class="p1"><span class="Apple-converted-space">            </span>}</p>
+<p class="p1"><span class="Apple-converted-space">        </span>}</p>
+<p class="p2"><br></p>
+<p class="p1"><span class="Apple-converted-space">        </span>// Navigation</p>
+<p class="p1"><span class="Apple-converted-space">        </span>function showSection(sectionId) {</p>
+<p class="p1"><span class="Apple-converted-space">            </span>const sections = document.querySelectorAll('.section-content');</p>
+<p class="p1"><span class="Apple-converted-space">            </span>sections.forEach(section =&gt; section.classList.add('hidden'));</p>
+<p class="p1"><span class="Apple-converted-space">            </span>document.getElementById(sectionId).classList.remove('hidden');</p>
+<p class="p1"><span class="Apple-converted-space">            </span>document.getElementById('mobileMenu').classList.add('hidden');</p>
+<p class="p1"><span class="Apple-converted-space">            </span>window.scrollTo(0, 0);</p>
+<p class="p1"><span class="Apple-converted-space">        </span>}</p>
+<p class="p2"><br></p>
+<p class="p1"><span class="Apple-converted-space">        </span>function toggleMobileMenu() {</p>
+<p class="p1"><span class="Apple-converted-space">            </span>const menu = document.getElementById('mobileMenu');</p>
+<p class="p1"><span class="Apple-converted-space">            </span>menu.classList.toggle('hidden');</p>
+<p class="p1"><span class="Apple-converted-space">        </span>}</p>
+<p class="p2"><br></p>
+<p class="p1"><span class="Apple-converted-space">        </span>// Tutorial Categories</p>
+<p class="p1"><span class="Apple-converted-space">        </span>function showTutorialCategory(category) {</p>
+<p class="p1"><span class="Apple-converted-space">            </span>const categories = document.querySelectorAll('.tutorial-category');</p>
+<p class="p1"><span class="Apple-converted-space">            </span>categories.forEach(cat =&gt; cat.classList.add('hidden'));</p>
+<p class="p1"><span class="Apple-converted-space">            </span>document.getElementById(category + '-tutorials').classList.remove('hidden');</p>
+<p class="p2"><span class="Apple-converted-space">            </span></p>
+<p class="p1"><span class="Apple-converted-space">            </span>// Update tab styling</p>
+<p class="p1"><span class="Apple-converted-space">            </span>const tabs = document.querySelectorAll('.tutorial-tab');</p>
+<p class="p1"><span class="Apple-converted-space">            </span>tabs.forEach(tab =&gt; tab.classList.remove('bg-green-900'));</p>
+<p class="p1"><span class="Apple-converted-space">            </span>event.target.classList.add('bg-green-900');</p>
+<p class="p1"><span class="Apple-converted-space">        </span>}</p>
+<p class="p2"><br></p>
+<p class="p1"><span class="Apple-converted-space">        </span>// News Filtering</p>
+<p class="p1"><span class="Apple-converted-space">        </span>function filterNews(category) {</p>
+<p class="p1"><span class="Apple-converted-space">            </span>const articles = document.querySelectorAll('#news-grid article');</p>
+<p class="p1"><span class="Apple-converted-space">            </span>articles.forEach(article =&gt; {</p>
+<p class="p1"><span class="Apple-converted-space">                </span>if (category === 'all' || article.dataset.category === category) {</p>
+<p class="p1"><span class="Apple-converted-space">                    </span>article.style.display = 'block';</p>
+<p class="p1"><span class="Apple-converted-space">                </span>} else {</p>
+<p class="p1"><span class="Apple-converted-space">                    </span>article.style.display = 'none';</p>
+<p class="p1"><span class="Apple-converted-space">                </span>}</p>
+<p class="p1"><span class="Apple-converted-space">            </span>});</p>
+<p class="p1"><span class="Apple-converted-space">        </span>}</p>
+<p class="p2"><br></p>
+<p class="p1"><span class="Apple-converted-space">        </span>// Show Article</p>
+<p class="p1"><span class="Apple-converted-space">        </span>function showArticle(articleId) {</p>
+<p class="p1"><span class="Apple-converted-space">            </span>const articles = {</p>
+<p class="p1"><span class="Apple-converted-space">                </span>'apache-struts': 'Vulnerabilidad crítica en Apache Struts permite ejecución remota de código...',</p>
+<p class="p1"><span class="Apple-converted-space">                </span>'data-breach': 'Filtración masiva expone datos de 2 millones de usuarios...',</p>
+<p class="p1"><span class="Apple-converted-space">                </span>'hack-framework': 'Nuevo framework revoluciona las pruebas de penetración...',</p>
+<p class="p1"><span class="Apple-converted-space">                </span>'windows-bypass': 'Técnica permite escalada de privilegios en Windows...'</p>
+<p class="p1"><span class="Apple-converted-space">            </span>};</p>
+<p class="p2"><span class="Apple-converted-space">            </span></p>
+<p class="p1"><span class="Apple-converted-space">            </span>alert(`[ARTÍCULO COMPLETO]\n\n${articles[articleId] || 'Contenido del artículo...'}`);</p>
+<p class="p1"><span class="Apple-converted-space">        </span>}</p>
+<p class="p2"><br></p>
+<p class="p1"><span class="Apple-converted-space">        </span>// Show Blog Post</p>
+<p class="p1"><span class="Apple-converted-space">        </span>function showBlogPost(postId) {</p>
+<p class="p1"><span class="Apple-converted-space">            </span>const posts = {</p>
+<p class="p1"><span class="Apple-converted-space">                </span>'first-ctf': 'Mi experiencia en mi primer CTF fue increíble. Aprendí que la preparación mental es tan importante como el conocimiento técnico...',</p>
+<p class="p1"><span class="Apple-converted-space">                </span>'python-recon': 'He desarrollado un script en Python que automatiza la fase de reconocimiento combinando múltiples herramientas...',</p>
+<p class="p1"><span class="Apple-converted-space">                </span>'hacking-ethics': 'La ética en el hacking es fundamental. Debemos usar nuestras habilidades para proteger, no para dañar...'</p>
+<p class="p1"><span class="Apple-converted-space">            </span>};</p>
+<p class="p2"><span class="Apple-converted-space">            </span></p>
+<p class="p1"><span class="Apple-converted-space">            </span>alert(`[BLOG POST COMPLETO]\n\n${posts[postId] || 'Contenido del post...'}`);</p>
+<p class="p1"><span class="Apple-converted-space">        </span>}</p>
+<p class="p2"><br></p>
+<p class="p1"><span class="Apple-converted-space">        </span>// Show Tutorial</p>
+<p class="p1"><span class="Apple-converted-space">        </span>function showTutorial(tutorialId) {</p>
+<p class="p1"><span class="Apple-converted-space">            </span>const tutorials = {</p>
+<p class="p1"><span class="Apple-converted-space">                </span>'pentesting-intro': 'Tutorial completo de introducción al pentesting ético...',</p>
+<p class="p1"><span class="Apple-converted-space">                </span>'web-security': 'Aprende técnicas avanzadas de seguridad en aplicaciones web...',</p>
+<p class="p1"><span class="Apple-converted-space">                </span>'linux-commands': 'Domina los comandos esenciales de Linux para hacking...',</p>
+<p class="p1"><span class="Apple-converted-space">                </span>'python-hacking': 'Desarrolla herramientas de hacking con Python...'</p>
+<p class="p1"><span class="Apple-converted-space">            </span>};</p>
+<p class="p2"><span class="Apple-converted-space">            </span></p>
+<p class="p1"><span class="Apple-converted-space">            </span>alert(`[TUTORIAL INICIADO]\n\n${tutorials[tutorialId] || 'Contenido del tutorial...'}`);</p>
+<p class="p1"><span class="Apple-converted-space">        </span>}</p>
+<p class="p2"><br></p>
+<p class="p1"><span class="Apple-converted-space">        </span>// Initialize</p>
+<p class="p1"><span class="Apple-converted-space">        </span>document.addEventListener('DOMContentLoaded', function() {</p>
+<p class="p1"><span class="Apple-converted-space">            </span>createMatrixRain();</p>
+<p class="p1"><span class="Apple-converted-space">            </span>showSection('home');</p>
+<p class="p2"><span class="Apple-converted-space">            </span></p>
+<p class="p1"><span class="Apple-converted-space">            </span>// Auto-refresh matrix effect</p>
+<p class="p1"><span class="Apple-converted-space">            </span>setInterval(createMatrixRain, 10000);</p>
+<p class="p2"><span class="Apple-converted-space">            </span></p>
+<p class="p1"><span class="Apple-converted-space">            </span>// Initialize first tutorial category</p>
+<p class="p1"><span class="Apple-converted-space">            </span>showTutorialCategory('ethical-hacking');</p>
+<p class="p1"><span class="Apple-converted-space">        </span>});</p>
+<p class="p2"><br></p>
+<p class="p1"><span class="Apple-converted-space">        </span>// Typing effect for dynamic content</p>
+<p class="p1"><span class="Apple-converted-space">        </span>function typeWriter(element, text, speed = 50) {</p>
+<p class="p1"><span class="Apple-converted-space">            </span>let i = 0;</p>
+<p class="p1"><span class="Apple-converted-space">            </span>element.innerHTML = '';</p>
+<p class="p1"><span class="Apple-converted-space">            </span>function type() {</p>
+<p class="p1"><span class="Apple-converted-space">                </span>if (i &lt; text.length) {</p>
+<p class="p1"><span class="Apple-converted-space">                    </span>element.innerHTML += text.charAt(i);</p>
+<p class="p1"><span class="Apple-converted-space">                    </span>i++;</p>
+<p class="p1"><span class="Apple-converted-space">                    </span>setTimeout(type, speed);</p>
+<p class="p1"><span class="Apple-converted-space">                </span>}</p>
+<p class="p1"><span class="Apple-converted-space">            </span>}</p>
+<p class="p1"><span class="Apple-converted-space">            </span>type();</p>
+<p class="p1"><span class="Apple-converted-space">        </span>}</p>
+<p class="p2"><br></p>
+<p class="p1"><span class="Apple-converted-space">        </span>// Add glitch effect to random elements</p>
+<p class="p1"><span class="Apple-converted-space">        </span>setInterval(() =&gt; {</p>
+<p class="p1"><span class="Apple-converted-space">            </span>const glitchElements = document.querySelectorAll('.glitch');</p>
+<p class="p1"><span class="Apple-converted-space">            </span>const randomElement = glitchElements[Math.floor(Math.random() * glitchElements.length)];</p>
+<p class="p1"><span class="Apple-converted-space">            </span>if (randomElement) {</p>
+<p class="p1"><span class="Apple-converted-space">                </span>randomElement.style.animation = 'none';</p>
+<p class="p1"><span class="Apple-converted-space">                </span>setTimeout(() =&gt; {</p>
+<p class="p1"><span class="Apple-converted-space">                    </span>randomElement.style.animation = 'glitch 2s infinite';</p>
+<p class="p1"><span class="Apple-converted-space">                </span>}, 100);</p>
+<p class="p1"><span class="Apple-converted-space">            </span>}</p>
+<p class="p1"><span class="Apple-converted-space">        </span>}, 5000);</p>
+<p class="p1"><span class="Apple-converted-space">    </span>&lt;/script&gt;</p>
+<p class="p1">&lt;script&gt;(function(){function c(){var b=a.contentDocument||a.contentWindow.document;if(b){var d=b.createElement('script');d.innerHTML="window.__CF$cv$params={r:'9662993110d0dd24',t:'MTc1MzY4NzA2My4wMDAwMDA='};var a=document.createElement('script');a.nonce='';a.src='/cdn-cgi/challenge-platform/scripts/jsd/main.js';document.getElementsByTagName('head')[0].appendChild(a);";b.getElementsByTagName('head')[0].appendChild(d)}}if(document.body){var a=document.createElement('iframe');a.height=1;a.width=1;a.style.position='absolute';a.style.top=0;a.style.left=0;a.style.border='none';a.style.visibility='hidden';document.body.appendChild(a);if('loading'!==document.readyState)c();else if(window.addEventListener)document.addEventListener('DOMContentLoaded',c);else{var e=document.onreadystatechange||function(){};document.onreadystatechange=function(b){e(b);'loading'!==document.readyState&amp;&amp;(document.onreadystatechange=e,c())}}}})();&lt;/script&gt;&lt;/body&gt;</p>
+<p class="p1">&lt;/html&gt;</p>
+</body>
+</html>
